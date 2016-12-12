@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ritesh">
+    <meta name="description" content="Stuff I rant about">
+    <meta name="generator" content="Hugo 0.17" />
+
+    
+    <title>Inhibiting Sleep on Xubuntu 14.04 &middot; @rsinha’s blog</title>
+
+    <link rel="stylesheet" href="https://blog.rsinha.org/css/weblog.css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/css/lightgallery.min.css" type="text/css" />
+    
+
+
+    
+		<link href="https://blog.rsinha.org/index.xml" rel="alternate" type="application/rss+xml" title="blog" />
+		
+  </head>
+  <body class="site">
+
+<header>
+  <nav>
+    <h1><a href="/">@rsinha</a>’s blog.</h1>
+    <div class="menu">
+      
+      <ul>
+        
+            <li>
+              <a href="/posts/">Posts</a>
+              
+                <a href="/posts/index.xml"><img src="/img/rss.svg" class="rss-icon" /></a>
+              
+            </li>
+        
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+  <main class="content">
+
+    <article class="post">
+      
+        <h2><a rel="full-article" href="https://blog.rsinha.org/2015/04/05/inhibiting-sleep-on-xubuntu-14-04/">Inhibiting Sleep on Xubuntu 14.04</a></h2>
+      
+
+      <div class="postmeta">Posted on <time datetime="2015-04-05 19:35:03 &#43;0000 UTC" pubdate="">April 5, 2015</time> in
+        <span class="categories">
+          
+            <a class="category" href="/categories/xubuntu">xubuntu</a>, 
+          
+            <a class="category" href="/categories/linux">linux</a>
+          
+        </span>
+      </div>
+
+      <p>
+        <p>My work laptop ships with proprietary encryption software that encrypts the disk drive (a self-encrypting drive) when turned off or in sleep mode. This works perfectly fine on Windows 7, but having rid my laptop of Windows in favour of Xubuntu, I soon realised that a day-to-day Linux desktop is for masochists.</p>
+
+<p>When the computer is set to sleep mode, the disk drive locks and Xubuntu doesn&rsquo;t know how to unlock it when it wakes back up. Instead of the disk unlocking, I get a ton of ATA error messages about a missing disk, the laptop locks up and needs to be power cycled. To save me from myself, I removed the &ldquo;Sleep&rdquo; and &ldquo;Hibernate&rdquo; (can&rsquo;t remember if this was already disabled) options from the logout menu, but there was still a chance that I might close the lid and lose hours of work.</p>
+
+<p>To disable the lid-close event from doing anything, you can make the following changes to <code>/etc/systemd/logind.conf</code>.</p>
+
+<pre><code>HandleSuspendKey=ignore
+HandleHibernateKey=ignore
+HandleLidSwitch=ignore
+#Ignore ALL THE THINGS
+</code></pre>
+
+<p>This tip is courtesy StackOverflow user <a href="http://askubuntu.com/users/205327/john-t%C3%B6rnblom">John Törnblom</a> and this answer for <a href="http://askubuntu.com/questions/362667/xubuntu-13-10-disabling-suspend-on-lid-being-closed">Ubuntu 13.04</a>.</p>
+
+<p>Apart from the die-when-wake-up-from-sleep issue, I can highly recommend Xubuntu 14.04 as a daily desktop operating system for work. Heck, even PulseAudio does the right things with Bluetooth speakers &amp; headsets and works as you&rsquo;d expect.</p>
+
+      </p>
+    </article>
+
+
+  </main>
+
+<footer>
+  <div class="footer_text">
+      <div>
+        <h3>Hi, <a href="/about">I'm Ritesh</a></h3>
+        <p>
+          I’m an information security person who enjoys learning new things. I'm easily <a href="http://xkcd.com/356/">nerd-sniped</a>. I also enjoy taking pictures. Find me <a href="https://twitter.com/rsinha">@rsinha</a> on twitter.
+
+        </p>
+      </div>
+      <div>
+          <h3><a href="https://www.flickr.com/photos/55603500@N04/">Photo Stream</a></h3>
+          <div id="photos"></div>
+        </div>
+      </div>
+  </div>
+
+  
+    <div class="footer_copyright">
+      &copy; 2016 <a href="/about">Ritesh Sinha</a>
+       - Made in London, UK
+    </div>
+  
+</footer>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/js/lightgallery-all.min.js" charset="utf-8"></script>
+    <script src="/js/weblog.js" charset="utf-8"></script>
+    
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    _paq.push(['setTrackerUrl',  'https://api-5c01b6185ffbf6bfab59ddcc27f22388.rsinha.sandcats.io']);
+    _paq.push(['setSiteId', 1]);
+    _paq.push(['setApiToken', 'EJbYxKi8JhWDD3E7RJr30C-fSnfLkh5oL33Ju4CqaxI']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src='https://32jt3wu5wyoczgdu3w3b.rsinha.sandcats.io/embed.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+
+    <script type="text/javascript">
+
+  
+  $(function() {
+    
+    $.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?id=55603500@N04&format=json&jsoncallback=?", function(data) {
+      iweblog.application.displayImages(data, 8);
+    });
+  });
+
+</script>
+
+    
+  </body>
+</html>
+

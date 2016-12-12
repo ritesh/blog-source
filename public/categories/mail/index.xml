@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+
+    <title>@rsinha’s blog</title>
+    <link>https://blog.rsinha.org/categories/mail/index.xml</link>
+    <description>All entries on blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    
+    
+    <atom:link href="/categories/mail/index.xml" rel="self" type="application/rss+xml" />
+    
+      
+      <item>
+        <title>No Push Email</title>
+        <link>https://blog.rsinha.org/2012/05/06/no-push-email/</link>
+        <pubDate>Sun, 06 May 2012 10:00:18 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2012/05/06/no-push-email/</guid>
+        <description>&lt;p&gt;I&amp;rsquo;ve had a Gmail account for the last few years and the number of emails I get every day varies between ten to thirty. Out of the emails I receive, there are probably five or six emails per week that require either my attention or a reply. The majority of these are spammy emails that come from Indian companies with dubious privacy policies. I remember unsubscribing from most of them but I still keep getting emails from them or their &amp;lsquo;selected&amp;rsquo; partners (Find your life partner! Find a new job!). Keeping up with filtering emails is annoying especially if you primarily rely on your phone for managing email. Getting constantly notified about emails that you don&amp;rsquo;t care to read is both annoying and distracting.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;ve owned a smartphone in the last few years, the first thing you probably did was setup up push email (either Exchange or IMAP IDLE). This is definitely the case if you&amp;rsquo;ve owned an Android device where it is the default behaviour. This is great if you rely on your Gmail/Google Apps/Exchange account for work but not useful at all if most of the email you receive is borderline spam. In most cases, the majority  of your friends probably send you messages on social sites rather than write you an email.&lt;/p&gt;
+
+&lt;p&gt;I turned off push emails on my phone for the first time in many years since owning many kinds of &amp;lsquo;smartphones&amp;rsquo;, relying instead on an email client that &lt;a href=&#34;http://sparrowmailapp.com/&#34;&gt;checks your email&lt;/a&gt; when you start it up. This &amp;lsquo;feature&amp;rsquo; is due to an issue in the way the Apple handles push notifications and might go away soon. I&amp;rsquo;m sure the default Mail app can be configured to manually sync as well but I much prefer Sparrow due to it&amp;rsquo;s nice integration with Gmail labels. It also has a really nice UI.&lt;/p&gt;
+
+&lt;p&gt;After using this setup for about three weeks, I realised that I&amp;rsquo;d been spending less time responding to random buzzes at all times of the day. I now check my email maybe 3 to 4 times a day at most when I&amp;rsquo;m taking a break at work. I&amp;rsquo;ve also started to relive the olden days, when one had to wait for the email client to fetch messages and display notifications. The anticipation of novelty in any form is a wonderful experience.&lt;/p&gt;
+
+&lt;p&gt;Overall, this works out really well for me since the people who send me an email don&amp;rsquo;t expect an instantaneous response. People who need to reach me urgently usually call or text me and I can get back to them immediately.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+  </channel>
+</rss>

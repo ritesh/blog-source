@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+
+    <title>@rsinha’s blog</title>
+    <link>https://blog.rsinha.org/categories/xubuntu/index.xml</link>
+    <description>All entries on blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    
+    
+    <atom:link href="/categories/xubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+      
+      <item>
+        <title>Inhibiting Sleep on Xubuntu 14.04</title>
+        <link>https://blog.rsinha.org/2015/04/05/inhibiting-sleep-on-xubuntu-14-04/</link>
+        <pubDate>Sun, 05 Apr 2015 19:35:03 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2015/04/05/inhibiting-sleep-on-xubuntu-14-04/</guid>
+        <description>&lt;p&gt;My work laptop ships with proprietary encryption software that encrypts the disk drive (a self-encrypting drive) when turned off or in sleep mode. This works perfectly fine on Windows 7, but having rid my laptop of Windows in favour of Xubuntu, I soon realised that a day-to-day Linux desktop is for masochists.&lt;/p&gt;
+
+&lt;p&gt;When the computer is set to sleep mode, the disk drive locks and Xubuntu doesn&amp;rsquo;t know how to unlock it when it wakes back up. Instead of the disk unlocking, I get a ton of ATA error messages about a missing disk, the laptop locks up and needs to be power cycled. To save me from myself, I removed the &amp;ldquo;Sleep&amp;rdquo; and &amp;ldquo;Hibernate&amp;rdquo; (can&amp;rsquo;t remember if this was already disabled) options from the logout menu, but there was still a chance that I might close the lid and lose hours of work.&lt;/p&gt;
+
+&lt;p&gt;To disable the lid-close event from doing anything, you can make the following changes to &lt;code&gt;/etc/systemd/logind.conf&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;HandleSuspendKey=ignore
+HandleHibernateKey=ignore
+HandleLidSwitch=ignore
+#Ignore ALL THE THINGS
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This tip is courtesy StackOverflow user &lt;a href=&#34;http://askubuntu.com/users/205327/john-t%C3%B6rnblom&#34;&gt;John Törnblom&lt;/a&gt; and this answer for &lt;a href=&#34;http://askubuntu.com/questions/362667/xubuntu-13-10-disabling-suspend-on-lid-being-closed&#34;&gt;Ubuntu 13.04&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Apart from the die-when-wake-up-from-sleep issue, I can highly recommend Xubuntu 14.04 as a daily desktop operating system for work. Heck, even PulseAudio does the right things with Bluetooth speakers &amp;amp; headsets and works as you&amp;rsquo;d expect.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+  </channel>
+</rss>

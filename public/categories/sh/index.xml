@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+
+    <title>@rsinha’s blog</title>
+    <link>https://blog.rsinha.org/categories/sh/index.xml</link>
+    <description>All entries on blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    
+    
+    <atom:link href="/categories/sh/index.xml" rel="self" type="application/rss+xml" />
+    
+      
+      <item>
+        <title>Do batch things well</title>
+        <link>https://blog.rsinha.org/2011/12/04/do-batch-things-well/</link>
+        <pubDate>Sun, 04 Dec 2011 11:24:19 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2011/12/04/do-batch-things-well/</guid>
+        <description>&lt;p&gt;I sometimes forget this really easy one liner for doing things in a batch on Linux/MacOS.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# for file in `find . -type f`; do somescript.py $file; done
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you&amp;rsquo;re relying on the output of find it is probably best to use the &lt;code&gt;xargs&lt;/code&gt; option to &lt;code&gt;find&lt;/code&gt; like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# find . -type f -print0 | xargs -0 somescript.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Even better, you can avoid using &lt;code&gt;xargs&lt;/code&gt;, instead use the &lt;code&gt;exec&lt;/code&gt; option to find. Although I think this is available only on newer versions of &lt;code&gt;find&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# find . -type f -exec somescript.py &#39;{}&#39; +
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Sure, I could&amp;rsquo;ve written the batch file handling feature as part of my script but why waste my time when there are existing tools that already &lt;a href=&#34;http://en.wikipedia.org/wiki/Unix_philosophy#McIlroy:_A_Quarter_Century_of_Unix&#34;&gt;do one thing well&lt;/a&gt;?&lt;/p&gt;
+</description>
+      </item>
+      
+    
+  </channel>
+</rss>

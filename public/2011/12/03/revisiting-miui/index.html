@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ritesh">
+    <meta name="description" content="Stuff I rant about">
+    <meta name="generator" content="Hugo 0.17" />
+
+    
+    <title>Revisiting MIUI &middot; @rsinha’s blog</title>
+
+    <link rel="stylesheet" href="https://blog.rsinha.org/css/weblog.css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/css/lightgallery.min.css" type="text/css" />
+    
+
+
+    
+		<link href="https://blog.rsinha.org/index.xml" rel="alternate" type="application/rss+xml" title="blog" />
+		
+  </head>
+  <body class="site">
+
+<header>
+  <nav>
+    <h1><a href="/">@rsinha</a>’s blog.</h1>
+    <div class="menu">
+      
+      <ul>
+        
+            <li>
+              <a href="/posts/">Posts</a>
+              
+                <a href="/posts/index.xml"><img src="/img/rss.svg" class="rss-icon" /></a>
+              
+            </li>
+        
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+  <main class="content">
+
+    <article class="post">
+      
+        <h2><a rel="full-article" href="https://blog.rsinha.org/2011/12/03/revisiting-miui/">Revisiting MIUI</a></h2>
+      
+
+      <div class="postmeta">Posted on <time datetime="2011-12-03 11:28:59 &#43;0000 UTC" pubdate="">December 3, 2011</time> in
+        <span class="categories">
+          
+            <a class="category" href="/categories/android">android</a>
+          
+        </span>
+      </div>
+
+      <p>
+        
+
+<p>After encountering an annoying bug on CyanogenMod, I decided to give MIUI another go. For some reason, my phone constantly vibrated in call, possibly due to an obscure proximity sensor setting. Having tried a number of ways to switch it off, I finally gave up and decided it was time to try something different. My SO got an iPhone 4s and I was very close to getting one for myself. I&rsquo;m usually reluctant to switch Android ROMs as I&rsquo;ve switched to using 2 factor authentication for my Google account and having to reset the authenticator etc is annoying.</p>
+
+<p>The last time that I used MIUI I was happy for a few days until the random crashes started. These were usually triggered by the camera application, which was frustrating as I was travelling at the time and needed the camera more than the phone. However I gave in and decided to get the latest version of MIUI and see if things had improved. The original ROM is created by a Chinese company called xiaomi. It is available repackaged through a number of other distributors who usually add a language pack for other languages. There&rsquo;s even a Scottish distribution which I was tempted to try but wasn&rsquo;t too sure about.</p>
+
+<p>I obtained a copy from miui.us and quickly realised that it ships only with Chinese and US English. Which isn&rsquo;t too much of a problem until the dialer started borking my phone numbers US style. A UK version is available from miui android, which worked perfectly for me. Some of the English words are a bit dodgy at times (machine translation?) but otherwise it&rsquo;s really well done. The MIUI ROM is smaller in size (about 88 MB compared to 100+ MB) than the CM7 ROM, which is strange because apart from being derived from CM7, it adds a few extras of its own. I suppose many of the applications that come with CM7 have been stripped out (Advanced Call Settings etc).</p>
+
+<p>The first thing one notices after a fresh install is how the UI borrows from vendor customisations for Android like TouchWiz. It also feels like it&rsquo;s a lawsuit away from being decimated by a well known fruit company. The default font is different from what ships with AOSP or CyanogenMod, I&rsquo;m not sure what it is but it looks great. Most of the applications are the same as on CyanogenMod with one glaring exception. The stock browser has been replaced with a custom &lsquo;MIUI browser&rsquo; which offers tabbed browsing and ostensible speed improvements. I&rsquo;m used to the stock browser and was a little disappointed with it and am planning to revert to the stock browser when I have the time (this is relatively annoying process). A &lsquo;MiTalk&rsquo; application is provided which is probably similar to WhatsApp/Kik but exclusive to MIUI. I don&rsquo;t have any use for it and couldn&rsquo;t find an easy way to get rid of it as it is a system application.</p>
+
+<p>The ROM ships with apps2sd built-in, which allows you to move applications and the dalvik cache to your SD card. This feature is really important for phones like mine (HTC Desire) which ship with a tiny partition for applications. I had an ext3 partition ready on my SD card from my previous install of CM7 and was able to move the dalvik cache to the SD card. There isn&rsquo;t a GUI option to do this but you can use a terminal emulator (or adb) to run apps2sd.</p>
+
+<p>`# su -</p>
+
+<h1 id="a2sd">a2sd</h1>
+
+<p>`
+Another little useful feature was a birthday reminder notification. I&rsquo;m not sure if this is available on CyanogenMod but it is quite useful in nagging you to wish people on their birthday or buy them gifts. The notifications show up in the top notification bar every day after midnight. Presumably this data is derived from the Google profiles of the people you have on your contacts list.</p>
+
+<p>After about 2 weeks of use, I can say I&rsquo;m really happy with this ROM and feel that it works really well for me. I haven&rsquo;t run into any deal breaking issues or encountered any force-close bugs. If you&rsquo;re looking for a no-nonsense ROM I would still recommend CM7 as it is closest to the stock Android experience. I doubt there will ever be an Ice Cream Sandwich ROM for my phone so I&rsquo;ll stick to this until things change.</p>
+
+<p>[gallery link=&ldquo;file&rdquo;]</p>
+
+      </p>
+    </article>
+
+
+  </main>
+
+<footer>
+  <div class="footer_text">
+      <div>
+        <h3>Hi, <a href="/about">I'm Ritesh</a></h3>
+        <p>
+          I’m an information security person who enjoys learning new things. I'm easily <a href="http://xkcd.com/356/">nerd-sniped</a>. I also enjoy taking pictures. Find me <a href="https://twitter.com/rsinha">@rsinha</a> on twitter.
+
+        </p>
+      </div>
+      <div>
+          <h3><a href="https://www.flickr.com/photos/55603500@N04/">Photo Stream</a></h3>
+          <div id="photos"></div>
+        </div>
+      </div>
+  </div>
+
+  
+    <div class="footer_copyright">
+      &copy; 2016 <a href="/about">Ritesh Sinha</a>
+       - Made in London, UK
+    </div>
+  
+</footer>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/js/lightgallery-all.min.js" charset="utf-8"></script>
+    <script src="/js/weblog.js" charset="utf-8"></script>
+    
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    _paq.push(['setTrackerUrl',  'https://api-5c01b6185ffbf6bfab59ddcc27f22388.rsinha.sandcats.io']);
+    _paq.push(['setSiteId', 1]);
+    _paq.push(['setApiToken', 'EJbYxKi8JhWDD3E7RJr30C-fSnfLkh5oL33Ju4CqaxI']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src='https://32jt3wu5wyoczgdu3w3b.rsinha.sandcats.io/embed.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+
+    <script type="text/javascript">
+
+  
+  $(function() {
+    
+    $.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?id=55603500@N04&format=json&jsoncallback=?", function(data) {
+      iweblog.application.displayImages(data, 8);
+    });
+  });
+
+</script>
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ritesh">
+    <meta name="description" content="Stuff I rant about">
+    <meta name="generator" content="Hugo 0.17" />
+
+    
+    <title>Chunky binaries and bsdiff &middot; @rsinha’s blog</title>
+
+    <link rel="stylesheet" href="https://blog.rsinha.org/css/weblog.css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/css/lightgallery.min.css" type="text/css" />
+    
+
+
+    
+		<link href="https://blog.rsinha.org/index.xml" rel="alternate" type="application/rss+xml" title="blog" />
+		
+  </head>
+  <body class="site">
+
+<header>
+  <nav>
+    <h1><a href="/">@rsinha</a>’s blog.</h1>
+    <div class="menu">
+      
+      <ul>
+        
+            <li>
+              <a href="/posts/">Posts</a>
+              
+                <a href="/posts/index.xml"><img src="/img/rss.svg" class="rss-icon" /></a>
+              
+            </li>
+        
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+  <main class="content">
+
+    <article class="post">
+      
+        <h2><a rel="full-article" href="https://blog.rsinha.org/2015/01/14/chunky-binaries-and-bsdiff/">Chunky binaries and bsdiff</a></h2>
+      
+
+      <div class="postmeta">Posted on <time datetime="2015-01-14 12:19:54 &#43;0000 UTC" pubdate="">January 14, 2015</time> in
+        <span class="categories">
+          
+            <a class="category" href="/categories/bsdiff">bsdiff</a>, 
+          
+            <a class="category" href="/categories/go">go</a>, 
+          
+            <a class="category" href="/categories/linux">linux</a>
+          
+        </span>
+      </div>
+
+      <p>
+        <p>I&rsquo;ve lately taken an interest in golang as it seems to be the language <em>du jour</em> for web-services. My goto (hah) framework for writing tiny web applications is usually Flask (Python), which is still great for many things. One of my biggest gripes with Flask, and Python web applications in general, is the approach towards deploying 3rd party dependencies along with your application. Go&rsquo;s approach to package management is a bit odd coming from Python-land, but it has the advantage of ensuring that your application doesn&rsquo;t require 3rd party packages installed at runtime. Oh and static typing and all that is cool, too.</p>
+
+<p>If you&rsquo;re not familiar with go, I highly recommend that you check out <a href="https://tour.golang.org/welcome/1">A Tour of Go</a> and work your way through some of the examples to get a feel for it. One of the key features of go (and the one feature I care most about) is that your applications are native executable files that have dependencies baked-in and, in the case of web applications, come with an in-built HTTP server, instead of a myriad of scripts, configuration files etc. You can still chose to have configuration files for your application at runtime (e.g. a settings.json file), or set up environment variables as needed. This makes shipping your web application as easy as:</p>
+
+<ol>
+<li>Compile your application (<code>go build</code>). You may need to cross-compile if you&rsquo;re deploying to a different architecture (e.g. x86-64). Cross-compiling is not as difficult as it sounds.</li>
+<li>Copy the generated binary over to the server that you want to run it. If you want, you could strip the binary to shave off a few MB.</li>
+<li>Run it :)</li>
+<li>Set up a reverse proxy to forward all traffic to your application. You only need to do this once.</li>
+<li>There is no step 5.</li>
+</ol>
+
+<p>Contrast this with my current workflow for deploying Python web applications:</p>
+
+<ol>
+<li>Ensure Python versions match on dev and prod. This can be a nightmare sometimes, but is avoidable by ensuring that dev and production match as closely as possible (use the same version of Ubuntu/Fedora/Debian). Not an issue if your dev box runs the same flavour of Linux as uat/prod.</li>
+<li>Ensure that native libraries required by Python packages are available on both dev and production hosts (I&rsquo;m looking at you <code>libpq</code>).</li>
+<li>Have a well defined fabfile for deployments, or similar. This is not really a complaint, I think <code>fab deploy</code> sounds hilarious when said out loud and is also a nice way to deploy Python web applications.</li>
+<li>Restart apache/nginx so that it reloads your WSGI application. I think you can <code>touch</code> a file and <code>mod_wsgi</code> reloads your application, but this has never worked reliably for me.</li>
+<li>The way to set up debug logs for Python applications deployed with <code>mod_wsgi</code> is not straightforward. I gave up after spending a few hours trying, this shouldn&rsquo;t be that difficult! I&rsquo;m stuck with trying to reproduce production issues on my dev box.</li>
+</ol>
+
+<p>Executable files are all well and good but copying them over to production hosts multiple times a day, usually over SSH, can be slow if you&rsquo;re on crappy DSL. If I need to do this for servers sitting inside my company&rsquo;s network, I have to ship files inside an SSH tunnel <em>wrapped</em> inside a VPN connection. This makes it unbearably slow for files larger than 10MB. Why can&rsquo;t you just diff a binary file and upload <em>only</em> the changed bits? Surely this is possible?</p>
+
+<p>This is when I discovered <code>bsdiff</code> and its friend <code>bspatch</code>. I guess I&rsquo;m fairly late to this party, since <code>bsdiff</code> has been around since the early 2000s (or earlier?). This pair of amazing utilities was written by the Colin Percival of <a href="http://tarsnap.com">Tarsnap</a> fame. I understand that lots of binary applications use either <code>bsdiff</code> or an application that uses a similar algorithm to generate patches for binary applications.</p>
+
+<p>The clue is in the name; <code>bsdiff</code> lets you <code>diff</code> an old binary with a new binary and generates a patch for you. You take this patch, give it to <code>bspatch</code> along with an old binary and it gets transformed to the new one. If the changes between the binaries are small, the generated patch file (as you&rsquo;d think) is tiny. On average, the patch file is 2-3% of the full binary for the application I&rsquo;m working on. Instead of copying over the binary to a production host once I&rsquo;ve compiled my application, I copy the patch instead:</p>
+
+
+mv binary binary.old
+go build
+bsdiff binary.old binary binary_patch
+scp binary_patch /path/to/production/binary
+
+# On production host
+mv binary binary.old
+bspatch binary.old binary binary_patch
+# Need to do this because the binary loses +x 
+chmod +x binary
+# All done
+
+
+<p>Your production host now has the latest version of your binary. I have not tested it on anything else but binaries generated by <code>go build</code>, but there&rsquo;s no reason why it shouldn&rsquo;t work for binaries generated by other compilers.My next experiment will be to figure out how to reload the application after it receives a <code>SIGHUP</code>. Go gives you <code>&quot;os/signal&quot;</code> but I haven&rsquo;t had the chance to play around with it yet.</p>
+
+      </p>
+    </article>
+
+
+  </main>
+
+<footer>
+  <div class="footer_text">
+      <div>
+        <h3>Hi, <a href="/about">I'm Ritesh</a></h3>
+        <p>
+          I’m an information security person who enjoys learning new things. I'm easily <a href="http://xkcd.com/356/">nerd-sniped</a>. I also enjoy taking pictures. Find me <a href="https://twitter.com/rsinha">@rsinha</a> on twitter.
+
+        </p>
+      </div>
+      <div>
+          <h3><a href="https://www.flickr.com/photos/55603500@N04/">Photo Stream</a></h3>
+          <div id="photos"></div>
+        </div>
+      </div>
+  </div>
+
+  
+    <div class="footer_copyright">
+      &copy; 2016 <a href="/about">Ritesh Sinha</a>
+       - Made in London, UK
+    </div>
+  
+</footer>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/js/lightgallery-all.min.js" charset="utf-8"></script>
+    <script src="/js/weblog.js" charset="utf-8"></script>
+    
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    _paq.push(['setTrackerUrl',  'https://api-5c01b6185ffbf6bfab59ddcc27f22388.rsinha.sandcats.io']);
+    _paq.push(['setSiteId', 1]);
+    _paq.push(['setApiToken', 'EJbYxKi8JhWDD3E7RJr30C-fSnfLkh5oL33Ju4CqaxI']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src='https://32jt3wu5wyoczgdu3w3b.rsinha.sandcats.io/embed.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+
+    <script type="text/javascript">
+
+  
+  $(function() {
+    
+    $.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?id=55603500@N04&format=json&jsoncallback=?", function(data) {
+      iweblog.application.displayImages(data, 8);
+    });
+  });
+
+</script>
+
+    
+  </body>
+</html>
+

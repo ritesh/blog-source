@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ritesh">
+    <meta name="description" content="Stuff I rant about">
+    <meta name="generator" content="Hugo 0.17" />
+
+    
+    <title>Prevent accidental rm &middot; @rsinha’s blog</title>
+
+    <link rel="stylesheet" href="https://blog.rsinha.org/css/weblog.css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/css/lightgallery.min.css" type="text/css" />
+    
+
+
+    
+		<link href="https://blog.rsinha.org/index.xml" rel="alternate" type="application/rss+xml" title="blog" />
+		
+  </head>
+  <body class="site">
+
+<header>
+  <nav>
+    <h1><a href="/">@rsinha</a>’s blog.</h1>
+    <div class="menu">
+      
+      <ul>
+        
+            <li>
+              <a href="/posts/">Posts</a>
+              
+                <a href="/posts/index.xml"><img src="/img/rss.svg" class="rss-icon" /></a>
+              
+            </li>
+        
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+  <main class="content">
+
+    <article class="post">
+      
+        <h2><a rel="full-article" href="https://blog.rsinha.org/2012/05/05/prevent-accidental-rm/">Prevent accidental rm</a></h2>
+      
+
+      <div class="postmeta">Posted on <time datetime="2012-05-05 15:53:46 &#43;0000 UTC" pubdate="">May 5, 2012</time> in
+        <span class="categories">
+          
+            <a class="category" href="/categories/linux">linux</a>
+          
+        </span>
+      </div>
+
+      <p>
+        <p>If you&rsquo;re anything like me, you might casually type <code>rm -rf *</code> in your home directory when you really meant to delete the contents of another directory. You should, of course, always have a backup of the contents of your home directory just in case this happens.</p>
+
+<p>There is simple hack to force <code>rm</code> to prompt you to think about the files that are going to be deleted. Create a file called &lsquo;-i&rsquo; in the directory whose contents you want to protect from accidental deletion.</p>
+
+<p>An easy way to do this is to run <code>touch ./-i</code> which gives you:</p>
+
+<pre><code>ritesh@viridian:/var/tmp/aa$ ls -a
+-i      .       ..      100.txt 200.txt l.txt   seq.txt
+</code></pre>
+
+<p>If you now try and run rm -rf * now, this is what happens instead of everything getting nuked all at once.</p>
+
+<pre><code>ritesh@viridian:/var/tmp/aa$ rm -rf *
+remove 100.txt? 
+</code></pre>
+
+<p>I&rsquo;ve tried this on bash, I&rsquo;m not sure if this works with other shells (zsh, ksh). Sure, you could always remember to use <code>rm -rfi</code> but who can remember that whole extra letter?</p>
+
+      </p>
+    </article>
+
+
+  </main>
+
+<footer>
+  <div class="footer_text">
+      <div>
+        <h3>Hi, <a href="/about">I'm Ritesh</a></h3>
+        <p>
+          I’m an information security person who enjoys learning new things. I'm easily <a href="http://xkcd.com/356/">nerd-sniped</a>. I also enjoy taking pictures. Find me <a href="https://twitter.com/rsinha">@rsinha</a> on twitter.
+
+        </p>
+      </div>
+      <div>
+          <h3><a href="https://www.flickr.com/photos/55603500@N04/">Photo Stream</a></h3>
+          <div id="photos"></div>
+        </div>
+      </div>
+  </div>
+
+  
+    <div class="footer_copyright">
+      &copy; 2016 <a href="/about">Ritesh Sinha</a>
+       - Made in London, UK
+    </div>
+  
+</footer>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/js/lightgallery-all.min.js" charset="utf-8"></script>
+    <script src="/js/weblog.js" charset="utf-8"></script>
+    
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    _paq.push(['setTrackerUrl',  'https://api-5c01b6185ffbf6bfab59ddcc27f22388.rsinha.sandcats.io']);
+    _paq.push(['setSiteId', 1]);
+    _paq.push(['setApiToken', 'EJbYxKi8JhWDD3E7RJr30C-fSnfLkh5oL33Ju4CqaxI']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src='https://32jt3wu5wyoczgdu3w3b.rsinha.sandcats.io/embed.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+
+    <script type="text/javascript">
+
+  
+  $(function() {
+    
+    $.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?id=55603500@N04&format=json&jsoncallback=?", function(data) {
+      iweblog.application.displayImages(data, 8);
+    });
+  });
+
+</script>
+
+    
+  </body>
+</html>
+

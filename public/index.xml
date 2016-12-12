@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+
+    <title>@rsinha’s blog</title>
+    <link>https://blog.rsinha.org/index.xml</link>
+    <description>All entries on blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    
+    <lastBuildDate>Sat, 19 Nov 2016 22:17:58 +0000</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+      
+      <item>
+        <title>Hello, Hugo!</title>
+        <link>https://blog.rsinha.org/2016/11/09/hello-hugo/</link>
+        <pubDate>Sat, 19 Nov 2016 22:17:58 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2016/11/09/hello-hugo/</guid>
+        <description>
+
+&lt;p&gt;I had been running this blog using &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; for a while now, but didn&amp;rsquo;t quite understand how it all worked. Jekyll is a great tool, and you don&amp;rsquo;t need a whole lot of configuration to get started. If you&amp;rsquo;re using github to host either personal, project or organisation pages, Jekyll is a no-brainer to get started. However, as I&amp;rsquo;m not much of a Ruby programmer, I didn&amp;rsquo;t quite understand how Jekyll worked and having to &lt;code&gt;gem install ruby&lt;/code&gt; felt wrong &amp;ndash; especially since it also installs a whole lot of other dependencies that I don&amp;rsquo;t understand, either. Having to get the &amp;lsquo;right&amp;rsquo; version of ruby for jekyll to run is also pretty annoying. After some digging around, I discovered &lt;a href=&#34;http://gethugo.io&#34;&gt;hugo&lt;/a&gt;, which is a static site generator written in Go. I decided to finally take the plunge and move my Jekyll site to Hugo, in the hope that I could eke out at least one blog post about my experience.&lt;/p&gt;
+
+&lt;h3 id=&#34;why-hugo&#34;&gt;Why, Hugo?&lt;/h3&gt;
+
+&lt;p&gt;Hugo&amp;rsquo;s written in Go, which means that all you need to get started is a binary of Hugo somewhere in your &lt;code&gt;$PATH&lt;/code&gt;. That&amp;rsquo;s it. Everything it needs is baked into this statically compiled binary. Go code is easy to follow and the template code used by Hugo is Go&amp;rsquo;s &lt;code&gt;html/template&lt;/code&gt; which is available as part of the standard library. Besides, all the cool kids today use go for both personal and professional projects and I didn&amp;rsquo;t want to miss out.&lt;/p&gt;
+
+&lt;p&gt;Hugo shares much of the same common philosophy as Jekyll and possibly the hundreds of &lt;a href=&#34;https://www.staticgen.com/&#34;&gt;static site generators&lt;/a&gt; available today. You write your blog posts in markdown and they are rendered to HTML. The layout of your content and the look of your blog is decided by &lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;community created themes&lt;/a&gt; that you can either customise or use out of the box.  If you&amp;rsquo;re used to WordPress or similar content management platforms, creating a site like this may seem primitive. Hugo doesn&amp;rsquo;t give you an editor or a point and click interface to add upload and add images, for example. But it&amp;rsquo;s not just for people who are suckers for punishment, it&amp;rsquo;s a great way to maintain your blog entirely from the command line (web based editing is on the roadmap - but I wouldn&amp;rsquo;t hold my breath). If you&amp;rsquo;re the type of person who avoids Finder and uses &lt;code&gt;mv&lt;/code&gt; &amp;amp; &lt;code&gt;cp&lt;/code&gt; instead, Hugo is probably for you.&lt;/p&gt;
+
+&lt;p&gt;This is not meant to be a Hugo tutorial; if you want to learn how to start out with a Hugo blog or website, try the &lt;a href=&#34;https://gohugo.io/overview/introduction/&#34;&gt;official documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;hugo-and-jekyll-github-pages&#34;&gt;Hugo and Jekyll Github pages&lt;/h3&gt;
+
+&lt;p&gt;Jekyll works great with Github pages of all kinds as Github automatically recognises Jekyll based sites and automatically &amp;ldquo;builds&amp;rdquo; them into great looking static websites. Unfortunately, Github doesn&amp;rsquo;t know what to do with Hugo based sites, so it attempts to build them automatically and fails. When moving from Jekyll to Hugo, this was the first hurdle that I ran into - which seems obvious in hindsight. There&amp;rsquo;s a well written tutorial on using Github for &lt;a href=&#34;https://gohugo.io/tutorials/github-pages-blog/&#34;&gt;hosting with Hugo&lt;/a&gt; and I&amp;rsquo;ll try and summarise my experience in getting it to work with personal sites i.e. served from the master branch of your &lt;code&gt;&amp;lt;YOUR_USERNAME&amp;gt;.github.io&lt;/code&gt; repository.&lt;/p&gt;
+
+&lt;p&gt;If you don&amp;rsquo;t already have a &lt;code&gt;&amp;lt;YOUR_USERNAME&amp;gt;.github.io&lt;/code&gt; repository, you should create one now, whether you plan to use Hugo or not. It&amp;rsquo;s a great way to host content. The most important bit of information that I missed when reading the Hugo Github tutorial was that for personal sites, GitHub will only serve pages from the master branch of the &lt;code&gt;&amp;lt;YOUR_USERNAME&amp;gt;.github.io&lt;/code&gt; repository. Not the &lt;code&gt;gh-pages&lt;/code&gt; branch, which I thought was the case. The &lt;code&gt;gh-pages&lt;/code&gt; branch is only relevant to organisation and project pages. This took me way too long to figure out and was frustrating, even though the tutorial clearly calls it out. RTFM is important, friends.&lt;/p&gt;
+
+&lt;p&gt;To host and serve your user github page, you&amp;rsquo;ll need to set up two repositories. One that stores the source for your blog and the other is the static site itself (e.g. ritesh.github.io). First, you want to create a git repository that is going to store all the contents of your blog. This includes the entire directory structure your site as created by Hugo on first run. Next, you want to add the &lt;code&gt;&amp;lt;YOUR_GITHUB_USERNAME&amp;gt;.github.io&lt;/code&gt; repository as a git submodule as Hugo&amp;rsquo;s &lt;code&gt;public&lt;/code&gt; directory. I&amp;rsquo;ve added the theme as a submodule too, but this is not stricly required if you don&amp;rsquo;t intend to modify the theme. After you&amp;rsquo;re happy with the way your site looks, you need a way to push the generated site to your &lt;code&gt;&amp;lt;YOUR_GITHUB_USERNAME&amp;gt;.github.io&lt;/code&gt;. To do this, the following script from the tutorial above works perfectly. The script looks like this, what it does should be self-explanatory. The &lt;code&gt;public&lt;/code&gt; directory is a git submodule that contains your Hugo generated site:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+
+echo -e &amp;quot;\033[0;32mDeploying updates to GitHub...\033[0m&amp;quot;
+
+# Build the project.
+hugo # if using a theme, replace by `hugo -t &amp;lt;yourtheme&amp;gt;`
+
+# Go To Public folder
+cd public
+# Add changes to git.
+git add -A
+
+# Commit changes.
+msg=&amp;quot;rebuilding site `date`&amp;quot;
+if [ $# -eq 1 ]
+  then msg=&amp;quot;$1&amp;quot;
+fi
+git commit -m &amp;quot;$msg&amp;quot;
+
+# Push source and build repos.
+git push origin master
+
+# Come Back
+cd ..
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Each time you run this deploy script a new commit is created in the submodule that contains your rendered site (i.e. public) and changes are pushed to master. This automatically updates your blog or website.&lt;/p&gt;
+
+&lt;h3 id=&#34;adding-ssl-tls&#34;&gt;Adding SSL/TLS&lt;/h3&gt;
+
+&lt;p&gt;Github offers free a free SSL certificate for you &lt;code&gt;&amp;lt;YOURNAME_USERNAME&amp;gt;.github.io&lt;/code&gt; site, but you&amp;rsquo;re in trouble if using a custom domain name as the name on the certificate will not match &lt;code&gt;yourvanitydomain.coolTLD&lt;/code&gt;. To enable SSL/TLS (without origin SSL), I&amp;rsquo;ve used Cloudflare as my DNS servers for *.rsinha.org. Cloudflare can also be configured to provide additional features, such as caching and lots of other knobs and whistles, even on their free plan. When setting up Cloudflare, you can also configure it to rewrite all URLs to HTTPS rather than HTTP. This took me a while to figure out, since some of my assets were being served over HTTP even when I&amp;rsquo;d configured the assets on my site to point to https://. Chrome prevented the site from rendering correctly due to mixed-content warnings.&lt;/p&gt;
+
+&lt;h3 id=&#34;cost-benefits&#34;&gt;Cost, Benefits&lt;/h3&gt;
+
+&lt;p&gt;The total cost to host all of this is zero (thanks Github and the Cloudflare free plan!). That is, if you don&amp;rsquo;t count time spent fiddling around to get everything right. To their credit, Hugo has great documentation and you want to RTFM and not skim. In return for time spent, you get a nice static website consisting of bits that you can customize to your heart&amp;rsquo;s content. You also get a site with HTTPS enabled, caching, and free DDoS protection if the two readers of your blog decide to take you down.&lt;/p&gt;
+
+&lt;h3 id=&#34;it-works&#34;&gt;It works!&lt;/h3&gt;
+
+&lt;p&gt;Everything&amp;rsquo;s set up and works fine for now, but there are a few things that I still need to get right to make my life easier. For one, I can only edit my blog by checking it out somewhere and then writing content. There isn&amp;rsquo;t a web editor that works directly with Hugo that I&amp;rsquo;m aware of. You can set it up so that a commit to your blog source automatically builds your blog, but I&amp;rsquo;ve not set this up. This should be possible with a CI service like Travis.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://themes.gohugo.io/internet-weblog/&#34;&gt;This theme&lt;/a&gt; is great, but I still need to tweak some of the metadata generated to my liking. To do that, I need a better understanding of how metadata is generated for each post. For example, hugo can automatically generate metadata items such as title and date. I&amp;rsquo;m still not sure how I can get it to automatically generate custom slugs and URLs. I&amp;rsquo;m doing this manually for now and it feels wrong, surely the computer can do this for me!&lt;/p&gt;
+
+&lt;p&gt;Overall, I&amp;rsquo;m quite happy with this setup and I looking to tweak it a little more to my liking as and when I have free time. I&amp;rsquo;d highly recommend it for anyone looking to move over from Jekyll or for people who don&amp;rsquo;t need self-hosted WordPress sites. It&amp;rsquo;s a fun learning experience and it creates a site that is free from bloat and does not require security patches or other maintenance.&lt;/p&gt;
+
+&lt;p&gt;Also, if you&amp;rsquo;re wondering why this is categorised as yak-shaving, read the &lt;a href=&#34;https://en.wiktionary.org/wiki/yak_shaving&#34;&gt;Wiktionary article&lt;/a&gt; to know more.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Building Dockerized Application Security Scanners</title>
+        <link>https://blog.rsinha.org/2015/07/10/building-dockerized-application-security-scanners/</link>
+        <pubDate>Fri, 10 Jul 2015 14:49:50 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2015/07/10/building-dockerized-application-security-scanners/</guid>
+        <description>
+
+&lt;p&gt;I read an &lt;a href=&#34;https://abhartiya.wordpress.com/2015/07/09/automating-zap-running-against-a-web-application-in-docker-containers/&#34;&gt;interesting post&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/anshuman_bh&#34;&gt;@anshuman_bh&lt;/a&gt; on automating ZAP scans for dockerized web applications. At the time, I was exploring &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;docker compose&lt;/a&gt; (formerly fig) as a way to &amp;ldquo;container-ize&amp;rdquo; a simple Python web application (Flask, Postgres, RabbitMQ). It occurred to me that &lt;code&gt;docker-compose&lt;/code&gt; would be a good way to accomplish this goal. The advantage of using docker-compose over using docker directly is that you can avoid writing &amp;ldquo;glue&amp;rdquo; code by defining links between containers. The example I discuss below is for ZAP, but you could use it for any other web application scanner that can be run in headless mode.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-problem&#34;&gt;The Problem&lt;/h3&gt;
+
+&lt;p&gt;If you haven&amp;rsquo;t read Anshuman&amp;rsquo;s post yet, I suggest that you &lt;a href=&#34;https://abhartiya.wordpress.com/2015/07/09/automating-zap-running-against-a-web-application-in-docker-containers/&#34;&gt;check it out&lt;/a&gt; to get an understanding of what he&amp;rsquo;s trying to accomplish. The goal is to automate scans against a web application that runs in a docker container. This is useful if you&amp;rsquo;re trying to set-up some sort of CI infrastructure that automatically scans new builds of the web application. We want to ensure that no human interaction is required, and reports generated from scans are saved somewhere on the host machine (outside the containers) to be processed or read.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-setup&#34;&gt;The Setup&lt;/h3&gt;
+
+&lt;p&gt;To accomplish this, I&amp;rsquo;ll use docker-compose instead of plain docker. To follow along, install docker-compose &lt;a href=&#34;https://docs.docker.com/compose/#installation-and-set-up&#34;&gt;from here&lt;/a&gt;. We&amp;rsquo;ll use three containers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The application being tested. For this example, I&amp;rsquo;ll use the famous WebGoat application because, well, goats.&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&#34;https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project&#34;&gt;Zed Attack Proxy&lt;/a&gt;. You could use any other application scanner that supports automation here.&lt;/li&gt;
+&lt;li&gt;A container that contains custom scripts. We could build on the ZAP container too, but I&amp;rsquo;ve found that this is more flexible.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The idea is to spin up the test application, followed by an instance of ZAP. After these containers are up, we want to connect to the ZAP container and direct it to scan the target and save the results once done.&lt;/p&gt;
+
+&lt;h3 id=&#34;docker-composing-all-the-things&#34;&gt;Docker-composing All The Things&lt;/h3&gt;
+
+&lt;p&gt;Using docker-compose is easy. All you need is one YAML file to define your containers and how they&amp;rsquo;re linked. Here&amp;rsquo;s what it looks like for my setup:
+&lt;script src=&#34;https://gist.github.com/ritesh/2fcd9fd32995ffeb30f1.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;To test my setup out, start by &lt;a href=&#34;https://github.com/ritesh/dockerscan&#34;&gt;cloning this repo&lt;/a&gt;. Once you have cloned it, run &lt;code&gt;docker-compose build&lt;/code&gt;. This will take a while to download images for the first time. Once this is done, run &lt;code&gt;docker-compose up&lt;/code&gt; to bring up all containers listed in &lt;code&gt;docker-compose.yml&lt;/code&gt;. After the last container exits, you should have a report from the ZAP scan in &lt;code&gt;reports/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, what just happened? &lt;code&gt;docker-compose&lt;/code&gt; looks at the YAML file and figures out what containers need to be started in what sequence. It starts the &amp;ldquo;target&amp;rdquo; container, which contains our test application (WebGoat in this case), followed by the ZAP container. The &amp;ldquo;tooling&amp;rdquo; container is started last. The &lt;code&gt;Dockerfile&lt;/code&gt; for tooling is defined in &lt;code&gt;tools&lt;/code&gt;. It builds on the &lt;code&gt;python 2.7&lt;/code&gt; image and contains a script to run the ZAP scan. You could add more tools/scripts here that you might want to run against the web application.&lt;/p&gt;
+
+&lt;p&gt;Hope this gives you ideas for workflows for automating scans. Send comments/questions/flames to &lt;a href=&#34;https://twitter.com/rsinha&#34;&gt;@rsinha&lt;/a&gt;.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Inhibiting Sleep on Xubuntu 14.04</title>
+        <link>https://blog.rsinha.org/2015/04/05/inhibiting-sleep-on-xubuntu-14-04/</link>
+        <pubDate>Sun, 05 Apr 2015 19:35:03 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2015/04/05/inhibiting-sleep-on-xubuntu-14-04/</guid>
+        <description>&lt;p&gt;My work laptop ships with proprietary encryption software that encrypts the disk drive (a self-encrypting drive) when turned off or in sleep mode. This works perfectly fine on Windows 7, but having rid my laptop of Windows in favour of Xubuntu, I soon realised that a day-to-day Linux desktop is for masochists.&lt;/p&gt;
+
+&lt;p&gt;When the computer is set to sleep mode, the disk drive locks and Xubuntu doesn&amp;rsquo;t know how to unlock it when it wakes back up. Instead of the disk unlocking, I get a ton of ATA error messages about a missing disk, the laptop locks up and needs to be power cycled. To save me from myself, I removed the &amp;ldquo;Sleep&amp;rdquo; and &amp;ldquo;Hibernate&amp;rdquo; (can&amp;rsquo;t remember if this was already disabled) options from the logout menu, but there was still a chance that I might close the lid and lose hours of work.&lt;/p&gt;
+
+&lt;p&gt;To disable the lid-close event from doing anything, you can make the following changes to &lt;code&gt;/etc/systemd/logind.conf&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;HandleSuspendKey=ignore
+HandleHibernateKey=ignore
+HandleLidSwitch=ignore
+#Ignore ALL THE THINGS
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This tip is courtesy StackOverflow user &lt;a href=&#34;http://askubuntu.com/users/205327/john-t%C3%B6rnblom&#34;&gt;John Törnblom&lt;/a&gt; and this answer for &lt;a href=&#34;http://askubuntu.com/questions/362667/xubuntu-13-10-disabling-suspend-on-lid-being-closed&#34;&gt;Ubuntu 13.04&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Apart from the die-when-wake-up-from-sleep issue, I can highly recommend Xubuntu 14.04 as a daily desktop operating system for work. Heck, even PulseAudio does the right things with Bluetooth speakers &amp;amp; headsets and works as you&amp;rsquo;d expect.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Chunky binaries and bsdiff</title>
+        <link>https://blog.rsinha.org/2015/01/14/chunky-binaries-and-bsdiff/</link>
+        <pubDate>Wed, 14 Jan 2015 12:19:54 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2015/01/14/chunky-binaries-and-bsdiff/</guid>
+        <description>&lt;p&gt;I&amp;rsquo;ve lately taken an interest in golang as it seems to be the language &lt;em&gt;du jour&lt;/em&gt; for web-services. My goto (hah) framework for writing tiny web applications is usually Flask (Python), which is still great for many things. One of my biggest gripes with Flask, and Python web applications in general, is the approach towards deploying 3rd party dependencies along with your application. Go&amp;rsquo;s approach to package management is a bit odd coming from Python-land, but it has the advantage of ensuring that your application doesn&amp;rsquo;t require 3rd party packages installed at runtime. Oh and static typing and all that is cool, too.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re not familiar with go, I highly recommend that you check out &lt;a href=&#34;https://tour.golang.org/welcome/1&#34;&gt;A Tour of Go&lt;/a&gt; and work your way through some of the examples to get a feel for it. One of the key features of go (and the one feature I care most about) is that your applications are native executable files that have dependencies baked-in and, in the case of web applications, come with an in-built HTTP server, instead of a myriad of scripts, configuration files etc. You can still chose to have configuration files for your application at runtime (e.g. a settings.json file), or set up environment variables as needed. This makes shipping your web application as easy as:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Compile your application (&lt;code&gt;go build&lt;/code&gt;). You may need to cross-compile if you&amp;rsquo;re deploying to a different architecture (e.g. x86-64). Cross-compiling is not as difficult as it sounds.&lt;/li&gt;
+&lt;li&gt;Copy the generated binary over to the server that you want to run it. If you want, you could strip the binary to shave off a few MB.&lt;/li&gt;
+&lt;li&gt;Run it :)&lt;/li&gt;
+&lt;li&gt;Set up a reverse proxy to forward all traffic to your application. You only need to do this once.&lt;/li&gt;
+&lt;li&gt;There is no step 5.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Contrast this with my current workflow for deploying Python web applications:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Ensure Python versions match on dev and prod. This can be a nightmare sometimes, but is avoidable by ensuring that dev and production match as closely as possible (use the same version of Ubuntu/Fedora/Debian). Not an issue if your dev box runs the same flavour of Linux as uat/prod.&lt;/li&gt;
+&lt;li&gt;Ensure that native libraries required by Python packages are available on both dev and production hosts (I&amp;rsquo;m looking at you &lt;code&gt;libpq&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Have a well defined fabfile for deployments, or similar. This is not really a complaint, I think &lt;code&gt;fab deploy&lt;/code&gt; sounds hilarious when said out loud and is also a nice way to deploy Python web applications.&lt;/li&gt;
+&lt;li&gt;Restart apache/nginx so that it reloads your WSGI application. I think you can &lt;code&gt;touch&lt;/code&gt; a file and &lt;code&gt;mod_wsgi&lt;/code&gt; reloads your application, but this has never worked reliably for me.&lt;/li&gt;
+&lt;li&gt;The way to set up debug logs for Python applications deployed with &lt;code&gt;mod_wsgi&lt;/code&gt; is not straightforward. I gave up after spending a few hours trying, this shouldn&amp;rsquo;t be that difficult! I&amp;rsquo;m stuck with trying to reproduce production issues on my dev box.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Executable files are all well and good but copying them over to production hosts multiple times a day, usually over SSH, can be slow if you&amp;rsquo;re on crappy DSL. If I need to do this for servers sitting inside my company&amp;rsquo;s network, I have to ship files inside an SSH tunnel &lt;em&gt;wrapped&lt;/em&gt; inside a VPN connection. This makes it unbearably slow for files larger than 10MB. Why can&amp;rsquo;t you just diff a binary file and upload &lt;em&gt;only&lt;/em&gt; the changed bits? Surely this is possible?&lt;/p&gt;
+
+&lt;p&gt;This is when I discovered &lt;code&gt;bsdiff&lt;/code&gt; and its friend &lt;code&gt;bspatch&lt;/code&gt;. I guess I&amp;rsquo;m fairly late to this party, since &lt;code&gt;bsdiff&lt;/code&gt; has been around since the early 2000s (or earlier?). This pair of amazing utilities was written by the Colin Percival of &lt;a href=&#34;http://tarsnap.com&#34;&gt;Tarsnap&lt;/a&gt; fame. I understand that lots of binary applications use either &lt;code&gt;bsdiff&lt;/code&gt; or an application that uses a similar algorithm to generate patches for binary applications.&lt;/p&gt;
+
+&lt;p&gt;The clue is in the name; &lt;code&gt;bsdiff&lt;/code&gt; lets you &lt;code&gt;diff&lt;/code&gt; an old binary with a new binary and generates a patch for you. You take this patch, give it to &lt;code&gt;bspatch&lt;/code&gt; along with an old binary and it gets transformed to the new one. If the changes between the binaries are small, the generated patch file (as you&amp;rsquo;d think) is tiny. On average, the patch file is 2-3% of the full binary for the application I&amp;rsquo;m working on. Instead of copying over the binary to a production host once I&amp;rsquo;ve compiled my application, I copy the patch instead:&lt;/p&gt;
+
+
+mv binary binary.old
+go build
+bsdiff binary.old binary binary_patch
+scp binary_patch /path/to/production/binary
+
+# On production host
+mv binary binary.old
+bspatch binary.old binary binary_patch
+# Need to do this because the binary loses +x 
+chmod +x binary
+# All done
+
+
+&lt;p&gt;Your production host now has the latest version of your binary. I have not tested it on anything else but binaries generated by &lt;code&gt;go build&lt;/code&gt;, but there&amp;rsquo;s no reason why it shouldn&amp;rsquo;t work for binaries generated by other compilers.My next experiment will be to figure out how to reload the application after it receives a &lt;code&gt;SIGHUP&lt;/code&gt;. Go gives you &lt;code&gt;&amp;quot;os/signal&amp;quot;&lt;/code&gt; but I haven&amp;rsquo;t had the chance to play around with it yet.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Another day, another blog</title>
+        <link>https://blog.rsinha.org/2014/11/17/another-day/</link>
+        <pubDate>Mon, 17 Nov 2014 22:41:00 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2014/11/17/another-day/</guid>
+        <description>&lt;pre&gt;
+Teathet6quiu yah4ooxi7AhB ciezei1Gahwu Quui2queixie 
+eeveahuy2ENi eoj8sa5iew4S eibeo8AuPhoo eeZe4peighoh 
+ao4oPhashiez Mee8quahmeet quae6eiVaep6 aep6quu9eiYo 
+pooyoh5Reeji jeiz2OoRefae Vaegohpek1Pa ahGh9pe1bohb 
+Oopheec6faic Ooka2capheZ7 Axuewee7Eiqu vooph2ee9Eij 
+Quahxaivohv1 eVu8eed9yeji uk8ingee8uFu shohz3tei9AB 
+Aw4oT2oongea VeeSh8ahghen aiqu2ioNgohk zuaBoth3aex7 
+Aroog7aivaeh cie3ongeTooF sha1looTohyi vaeheneigh9S 
+ChaefaeWiec3 fah9Hookee1i ahh6koThe1ae eYe2oFi7ieCh 
+aeR9ohg5Shae ii1po5Ujeiy8 cai3Ahnu0xie neDuiquuY7oh 
+Book0feeziez DooMoo4queib eish7aeKahv2 Eimai9eTe0Zo 
+Oojou2shu8oh oophioSuesh5 ex4ru3aD8uye zut7Heigahjo 
+Giet7eejei7e mioqu8doKi8e Laitai1ohquo ooRuaQuuZ9jo 
+iome1Eithi9j aaNgah0bupee ne8xaiphahVo wahtah9uru0F 
+upatai5aeS9o phohXoph7ohs mieQuiet9ael iemohpu0iiPi 
+ahFoo0Phu7th joa8aew0ooCh ko8za1ood9Te chei2Gepeil6 
+Deijimoa9sie Kai6Wah3johb Eegh3Eegho0f ooRie0AhR8ie 
+haiviuf7Ahno EiQu5theeCh7 Eeyeidae4uus lohzaeGhiph3 
+ieC0zaepeJ6a NaiTh4poh6we AiPuvohM6ahc Eew0see3eeph 
+ouNgeiS2thae Oon4cagh4ohf gaewahChei3f ainiRi7ein0h 
+&lt;/pre&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Getting Live USB sticks to boot consistently</title>
+        <link>https://blog.rsinha.org/2013/11/12/getting-live-usb-sticks-to-boot-consistently/</link>
+        <pubDate>Tue, 12 Nov 2013 20:53:18 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2013/11/12/getting-live-usb-sticks-to-boot-consistently/</guid>
+        <description>&lt;p&gt;Occasionally I like to boot my desktop running Windows from a USB stick to try out the latest version of a Linux distribution on hardware &amp;ndash; as opposed to running it in VirtualBox. I remember that this used to be straightforward on my old Acer laptop, but it&amp;rsquo;s hit and miss on my desktop. I&amp;rsquo;ve not quite figured out why boot-from-USB fails occasionally, but I&amp;rsquo;ve found great way around it.&lt;/p&gt;
+
+&lt;p&gt;Enter the &lt;a href=&#34;http://www.plop.at/en/bootmanager/index.html&#34;&gt;plop boot manager&lt;/a&gt;. Install this nifty little tool and it gives you a boot menu before windows starts up. You can now select your USB stick and it should boot, provided that unetbootin or a similar tool did it&amp;rsquo;s job.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Geared bikes</title>
+        <link>https://blog.rsinha.org/2013/08/10/geared-bikes/</link>
+        <pubDate>Sat, 10 Aug 2013 18:08:46 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2013/08/10/geared-bikes/</guid>
+        <description>&lt;p&gt;Got a sweet road bike off Gumtree. I thought the gears weren&amp;rsquo;t working, having never ridden a geared bike before.&lt;/p&gt;
+
+&lt;p&gt;Me: &amp;ldquo;The gears on this bike don&amp;rsquo;t work&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Bike shop guy: &amp;ldquo;Have you tried shifting these levers right here?&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Me: &amp;ldquo;Those are brakes, right?&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Bike shop guy: &amp;ldquo;How have you been shifting gears until this point?&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Me: &amp;ldquo;I&amp;rsquo;ll show myself out, thanks&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Laughter in the background as I walk out of the bike shop.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Never making fun of my computer illiterate friends and family ever again.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>More Black &amp; White</title>
+        <link>https://blog.rsinha.org/2013/05/21/more-black-white/</link>
+        <pubDate>Tue, 21 May 2013 22:11:18 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2013/05/21/more-black-white/</guid>
+        <description>&lt;p&gt;I wasted all evening trying to fix an annoying issue in this Wordpress theme. Clearly PHP and I don&amp;rsquo;t like each other.
+Found an old photo in Lightroom and decided to mess about with it. I think it is about &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt; a stop underexposed, but I like it anyway.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.flickr.com/photos/riteshkumarsinha/8770024243&#34;&gt;&lt;img src=&#34;https://farm8.staticflickr.com/7368/8770024243_7bafb80e46_h.jpg&#34; alt=&#34;DSCF0540.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m enjoying black &amp;amp; photos, trying to understand how tones work to bring out details in photographs.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Brussels</title>
+        <link>https://blog.rsinha.org/2013/05/11/brussels/</link>
+        <pubDate>Sat, 11 May 2013 23:43:20 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2013/05/11/brussels/</guid>
+        <description>&lt;p&gt;Found this while digging through some old photos.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.flickr.com/photos/riteshkumarsinha/8729206759&#34;&gt;&lt;img src=&#34;https://farm8.staticflickr.com/7394/8729206759_b5c581e91b_h.jpg&#34; alt=&#34;DSCF0925.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Finally, a Flickr Account</title>
+        <link>https://blog.rsinha.org/2012/09/30/finally-a-flickr-account/</link>
+        <pubDate>Sun, 30 Sep 2012 19:56:48 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2012/09/30/finally-a-flickr-account/</guid>
+        <description>&lt;p&gt;&lt;a href=&#34;http://farm9.staticflickr.com/8319/8035579978_ce7dd59e22_o.jpg&#34;&gt;&lt;img src=&#34;http://farm9.staticflickr.com/8319/8035579978_ce7dd59e22_o.jpg&#34; alt=&#34;Glasgow Central&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Decided to host my images on Flickr as I&amp;rsquo;m hoping they&amp;rsquo;ll do a better job of backing them up than me. As I don&amp;rsquo;t develop photos myself, it cost quite a bit to get just one roll developed. I&amp;rsquo;ve since moved to a fixed lens digital camera and I hope to put up more nice pictures soon.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Giving up on Linux desktop</title>
+        <link>https://blog.rsinha.org/2012/09/15/giving-up-on-native-linux/</link>
+        <pubDate>Sat, 15 Sep 2012 21:36:28 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2012/09/15/giving-up-on-native-linux/</guid>
+        <description>&lt;p&gt;I recently acquired a shiny new-ish desktop from a friend. Intel Core-i7 with 8 cores and a whopping 12 GB of RAM with a high-end ATI Radeon graphics card. It came with Windows 7 pre-installed and I decided to install Ubuntu 12.04 amd64 as a dual boot option. Initially, I had some trouble getting it to install on the inbuilt SSD (which should have been the first warning sign in retrospect). Having gotten it to install on the slower 500GB HDD, I was quite happy with it until I ran into the first few glitches. These issues were small to begin with but they irked me enough to get rid of Ubuntu altogether from the system.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The audio was glitchy. At first I thought this had something to do with Adobe Flash which has historically been rubbish on Linux and &lt;em&gt;especially&lt;/em&gt; on 64 bit Linux. I removed amd64 and replaced it with the 32 bits release instead. It turned out that audio was glitchy even for other applications (Rhythmbox, Spotify) regardless of the bitness. By glitchy I mean that it stuttered randomly if I so much as scrolled inside a browser window. As a responsible netizen, I&amp;rsquo;ve reported a bug but I don&amp;rsquo;t expect it to be fixed anytime soon.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Suspend to RAM was not available as an option. Suspend to disk worked sometimes but the computer often refused to &amp;ldquo;wake up&amp;rdquo; after going to sleep.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I tried to like Unity, I really did. It didn&amp;rsquo;t really work for my workflow which involves running multiple terminals. There might be an easier way to smoothly switch between windows of the same application but I could not find it. OSX, for example, has this nice feature that lets you use number keys to switch between terminals (Cmd+1, Cmd+2, etc.).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Compiz was also glitchy for me, even with the proprietary fglrx drivers.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I love the power of having a bash shell at hand but using Linux as a full time desktop OS is &lt;em&gt;still&lt;/em&gt; a nightmare. I want to just boot my system and get shit done and I don&amp;rsquo;t want to have to fiddle around with pulseaudio or any other crap. I have an older laptop running the old Ubuntu LTS just fine; I think that if you have old or fully supported hardware (mostly anything but ATI graphics), it &lt;em&gt;just works&lt;/em&gt;. In any case, I suspect I&amp;rsquo;ll probably try again when the next Ubuntu LTS release is out. Until then I am grudgingly obliged to run Ubuntu as a virtual machine on the Windows system.&lt;/p&gt;
+
+&lt;p&gt;A quick tip to get rid of grub from within Windows 7. Use &lt;a href=&#34;http://www.sysint.no/nedlasting/mbrfix.htm&#34;&gt;MbrFix&lt;/a&gt;. You might want to be careful though, the wrong command could wreck your hard disk(s).&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>No Push Email</title>
+        <link>https://blog.rsinha.org/2012/05/06/no-push-email/</link>
+        <pubDate>Sun, 06 May 2012 10:00:18 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2012/05/06/no-push-email/</guid>
+        <description>&lt;p&gt;I&amp;rsquo;ve had a Gmail account for the last few years and the number of emails I get every day varies between ten to thirty. Out of the emails I receive, there are probably five or six emails per week that require either my attention or a reply. The majority of these are spammy emails that come from Indian companies with dubious privacy policies. I remember unsubscribing from most of them but I still keep getting emails from them or their &amp;lsquo;selected&amp;rsquo; partners (Find your life partner! Find a new job!). Keeping up with filtering emails is annoying especially if you primarily rely on your phone for managing email. Getting constantly notified about emails that you don&amp;rsquo;t care to read is both annoying and distracting.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;ve owned a smartphone in the last few years, the first thing you probably did was setup up push email (either Exchange or IMAP IDLE). This is definitely the case if you&amp;rsquo;ve owned an Android device where it is the default behaviour. This is great if you rely on your Gmail/Google Apps/Exchange account for work but not useful at all if most of the email you receive is borderline spam. In most cases, the majority  of your friends probably send you messages on social sites rather than write you an email.&lt;/p&gt;
+
+&lt;p&gt;I turned off push emails on my phone for the first time in many years since owning many kinds of &amp;lsquo;smartphones&amp;rsquo;, relying instead on an email client that &lt;a href=&#34;http://sparrowmailapp.com/&#34;&gt;checks your email&lt;/a&gt; when you start it up. This &amp;lsquo;feature&amp;rsquo; is due to an issue in the way the Apple handles push notifications and might go away soon. I&amp;rsquo;m sure the default Mail app can be configured to manually sync as well but I much prefer Sparrow due to it&amp;rsquo;s nice integration with Gmail labels. It also has a really nice UI.&lt;/p&gt;
+
+&lt;p&gt;After using this setup for about three weeks, I realised that I&amp;rsquo;d been spending less time responding to random buzzes at all times of the day. I now check my email maybe 3 to 4 times a day at most when I&amp;rsquo;m taking a break at work. I&amp;rsquo;ve also started to relive the olden days, when one had to wait for the email client to fetch messages and display notifications. The anticipation of novelty in any form is a wonderful experience.&lt;/p&gt;
+
+&lt;p&gt;Overall, this works out really well for me since the people who send me an email don&amp;rsquo;t expect an instantaneous response. People who need to reach me urgently usually call or text me and I can get back to them immediately.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Prevent accidental rm</title>
+        <link>https://blog.rsinha.org/2012/05/05/prevent-accidental-rm/</link>
+        <pubDate>Sat, 05 May 2012 15:53:46 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2012/05/05/prevent-accidental-rm/</guid>
+        <description>&lt;p&gt;If you&amp;rsquo;re anything like me, you might casually type &lt;code&gt;rm -rf *&lt;/code&gt; in your home directory when you really meant to delete the contents of another directory. You should, of course, always have a backup of the contents of your home directory just in case this happens.&lt;/p&gt;
+
+&lt;p&gt;There is simple hack to force &lt;code&gt;rm&lt;/code&gt; to prompt you to think about the files that are going to be deleted. Create a file called &amp;lsquo;-i&amp;rsquo; in the directory whose contents you want to protect from accidental deletion.&lt;/p&gt;
+
+&lt;p&gt;An easy way to do this is to run &lt;code&gt;touch ./-i&lt;/code&gt; which gives you:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ritesh@viridian:/var/tmp/aa$ ls -a
+-i      .       ..      100.txt 200.txt l.txt   seq.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you now try and run rm -rf * now, this is what happens instead of everything getting nuked all at once.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ritesh@viridian:/var/tmp/aa$ rm -rf *
+remove 100.txt? 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I&amp;rsquo;ve tried this on bash, I&amp;rsquo;m not sure if this works with other shells (zsh, ksh). Sure, you could always remember to use &lt;code&gt;rm -rfi&lt;/code&gt; but who can remember that whole extra letter?&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Do batch things well</title>
+        <link>https://blog.rsinha.org/2011/12/04/do-batch-things-well/</link>
+        <pubDate>Sun, 04 Dec 2011 11:24:19 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2011/12/04/do-batch-things-well/</guid>
+        <description>&lt;p&gt;I sometimes forget this really easy one liner for doing things in a batch on Linux/MacOS.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# for file in `find . -type f`; do somescript.py $file; done
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you&amp;rsquo;re relying on the output of find it is probably best to use the &lt;code&gt;xargs&lt;/code&gt; option to &lt;code&gt;find&lt;/code&gt; like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# find . -type f -print0 | xargs -0 somescript.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Even better, you can avoid using &lt;code&gt;xargs&lt;/code&gt;, instead use the &lt;code&gt;exec&lt;/code&gt; option to find. Although I think this is available only on newer versions of &lt;code&gt;find&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# find . -type f -exec somescript.py &#39;{}&#39; +
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Sure, I could&amp;rsquo;ve written the batch file handling feature as part of my script but why waste my time when there are existing tools that already &lt;a href=&#34;http://en.wikipedia.org/wiki/Unix_philosophy#McIlroy:_A_Quarter_Century_of_Unix&#34;&gt;do one thing well&lt;/a&gt;?&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Revisiting MIUI</title>
+        <link>https://blog.rsinha.org/2011/12/03/revisiting-miui/</link>
+        <pubDate>Sat, 03 Dec 2011 11:28:59 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2011/12/03/revisiting-miui/</guid>
+        <description>
+
+&lt;p&gt;After encountering an annoying bug on CyanogenMod, I decided to give MIUI another go. For some reason, my phone constantly vibrated in call, possibly due to an obscure proximity sensor setting. Having tried a number of ways to switch it off, I finally gave up and decided it was time to try something different. My SO got an iPhone 4s and I was very close to getting one for myself. I&amp;rsquo;m usually reluctant to switch Android ROMs as I&amp;rsquo;ve switched to using 2 factor authentication for my Google account and having to reset the authenticator etc is annoying.&lt;/p&gt;
+
+&lt;p&gt;The last time that I used MIUI I was happy for a few days until the random crashes started. These were usually triggered by the camera application, which was frustrating as I was travelling at the time and needed the camera more than the phone. However I gave in and decided to get the latest version of MIUI and see if things had improved. The original ROM is created by a Chinese company called xiaomi. It is available repackaged through a number of other distributors who usually add a language pack for other languages. There&amp;rsquo;s even a Scottish distribution which I was tempted to try but wasn&amp;rsquo;t too sure about.&lt;/p&gt;
+
+&lt;p&gt;I obtained a copy from miui.us and quickly realised that it ships only with Chinese and US English. Which isn&amp;rsquo;t too much of a problem until the dialer started borking my phone numbers US style. A UK version is available from miui android, which worked perfectly for me. Some of the English words are a bit dodgy at times (machine translation?) but otherwise it&amp;rsquo;s really well done. The MIUI ROM is smaller in size (about 88 MB compared to 100+ MB) than the CM7 ROM, which is strange because apart from being derived from CM7, it adds a few extras of its own. I suppose many of the applications that come with CM7 have been stripped out (Advanced Call Settings etc).&lt;/p&gt;
+
+&lt;p&gt;The first thing one notices after a fresh install is how the UI borrows from vendor customisations for Android like TouchWiz. It also feels like it&amp;rsquo;s a lawsuit away from being decimated by a well known fruit company. The default font is different from what ships with AOSP or CyanogenMod, I&amp;rsquo;m not sure what it is but it looks great. Most of the applications are the same as on CyanogenMod with one glaring exception. The stock browser has been replaced with a custom &amp;lsquo;MIUI browser&amp;rsquo; which offers tabbed browsing and ostensible speed improvements. I&amp;rsquo;m used to the stock browser and was a little disappointed with it and am planning to revert to the stock browser when I have the time (this is relatively annoying process). A &amp;lsquo;MiTalk&amp;rsquo; application is provided which is probably similar to WhatsApp/Kik but exclusive to MIUI. I don&amp;rsquo;t have any use for it and couldn&amp;rsquo;t find an easy way to get rid of it as it is a system application.&lt;/p&gt;
+
+&lt;p&gt;The ROM ships with apps2sd built-in, which allows you to move applications and the dalvik cache to your SD card. This feature is really important for phones like mine (HTC Desire) which ship with a tiny partition for applications. I had an ext3 partition ready on my SD card from my previous install of CM7 and was able to move the dalvik cache to the SD card. There isn&amp;rsquo;t a GUI option to do this but you can use a terminal emulator (or adb) to run apps2sd.&lt;/p&gt;
+
+&lt;p&gt;`# su -&lt;/p&gt;
+
+&lt;h1 id=&#34;a2sd&#34;&gt;a2sd&lt;/h1&gt;
+
+&lt;p&gt;`
+Another little useful feature was a birthday reminder notification. I&amp;rsquo;m not sure if this is available on CyanogenMod but it is quite useful in nagging you to wish people on their birthday or buy them gifts. The notifications show up in the top notification bar every day after midnight. Presumably this data is derived from the Google profiles of the people you have on your contacts list.&lt;/p&gt;
+
+&lt;p&gt;After about 2 weeks of use, I can say I&amp;rsquo;m really happy with this ROM and feel that it works really well for me. I haven&amp;rsquo;t run into any deal breaking issues or encountered any force-close bugs. If you&amp;rsquo;re looking for a no-nonsense ROM I would still recommend CM7 as it is closest to the stock Android experience. I doubt there will ever be an Ice Cream Sandwich ROM for my phone so I&amp;rsquo;ll stick to this until things change.&lt;/p&gt;
+
+&lt;p&gt;[gallery link=&amp;ldquo;file&amp;rdquo;]&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Creating an Animated GIF</title>
+        <link>https://blog.rsinha.org/2011/11/12/creating-an-animated-gif/</link>
+        <pubDate>Sat, 12 Nov 2011 13:32:09 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2011/11/12/creating-an-animated-gif/</guid>
+        <description>&lt;p&gt;There are many ways to do this. You could use Windows Movie Maker, iMovie or professional movie editing applications. If you&amp;rsquo;re looking for something quick and dirty from the command line, especially if you have all images in one directory and they don&amp;rsquo;t require any post processing, &lt;a href=&#34;http://imagemagick.org&#34;&gt;ImageMagick&lt;/a&gt; can help.&lt;/p&gt;
+
+&lt;p&gt;ImageMagick is available for for Windows, Linux and MacOS X. The convert utility that comes with it is probably one of the most useful utilities I&amp;rsquo;ve ever used. Take for example, the task of converting a BMP image to JPEG.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ convert mypic001.bmp mypic001.jpg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Similarly, to convert a directory full of JPEG images to an animated GIF do this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ convert -loop 0 -delay 100 -size 200x200 *.jpg animated.gif
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Delay represents the time in milliseconds between each frame, and loop 0 ensures that the animation runs forever. The files in the directory are numbered incrementally, so they should be added in the correct order. Ensure that the dimensions of the resulting GIF are not too large, anything over 300x300 made my browser choke. For more information, check out the &lt;a href=&#34;http://www.imagemagick.org/Usage/anim_basics/&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Why I like Python</title>
+        <link>https://blog.rsinha.org/2011/11/09/hello-world/</link>
+        <pubDate>Wed, 09 Nov 2011 22:41:09 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2011/11/09/hello-world/</guid>
+        <description>&lt;p&gt;I&amp;rsquo;m a big fan of Python, especially its syntax which feels close to natural language. My programming skills are average, as I&amp;rsquo;ve never done any serious full time development, apart from some code I wrote for my MSc project. The project was mostly built using &lt;a href=&#34;http://scrapy.org/&#34;&gt;scrapy&lt;/a&gt; with little hacks thrown in to implement concurrency for processing data. Nowadays, I tend to use Python mostly as a glue language to automate stuff when bash doesn&amp;rsquo;t cut it. Stuff like this makes me like it even more:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# python -m SimpleHTTPServer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It&amp;rsquo;s a basic but mostly functional HTTP server. If an index.html file is found it is served; if not, you get a directory listing instead.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+    
+  </channel>
+</rss>

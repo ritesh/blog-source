@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+
+    <title>@rsinha’s blog</title>
+    <link>https://blog.rsinha.org/categories/python/index.xml</link>
+    <description>All entries on blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    
+    
+    <atom:link href="/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+      
+      <item>
+        <title>Why I like Python</title>
+        <link>https://blog.rsinha.org/2011/11/09/hello-world/</link>
+        <pubDate>Wed, 09 Nov 2011 22:41:09 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2011/11/09/hello-world/</guid>
+        <description>&lt;p&gt;I&amp;rsquo;m a big fan of Python, especially its syntax which feels close to natural language. My programming skills are average, as I&amp;rsquo;ve never done any serious full time development, apart from some code I wrote for my MSc project. The project was mostly built using &lt;a href=&#34;http://scrapy.org/&#34;&gt;scrapy&lt;/a&gt; with little hacks thrown in to implement concurrency for processing data. Nowadays, I tend to use Python mostly as a glue language to automate stuff when bash doesn&amp;rsquo;t cut it. Stuff like this makes me like it even more:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# python -m SimpleHTTPServer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It&amp;rsquo;s a basic but mostly functional HTTP server. If an index.html file is found it is served; if not, you get a directory listing instead.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+  </channel>
+</rss>

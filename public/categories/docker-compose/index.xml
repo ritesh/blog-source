@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+
+    <title>@rsinha’s blog</title>
+    <link>https://blog.rsinha.org/categories/docker-compose/index.xml</link>
+    <description>All entries on blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    
+    
+    <atom:link href="/categories/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    
+      
+      <item>
+        <title>Building Dockerized Application Security Scanners</title>
+        <link>https://blog.rsinha.org/2015/07/10/building-dockerized-application-security-scanners/</link>
+        <pubDate>Fri, 10 Jul 2015 14:49:50 +0000</pubDate>
+        
+        <guid>https://blog.rsinha.org/2015/07/10/building-dockerized-application-security-scanners/</guid>
+        <description>
+
+&lt;p&gt;I read an &lt;a href=&#34;https://abhartiya.wordpress.com/2015/07/09/automating-zap-running-against-a-web-application-in-docker-containers/&#34;&gt;interesting post&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/anshuman_bh&#34;&gt;@anshuman_bh&lt;/a&gt; on automating ZAP scans for dockerized web applications. At the time, I was exploring &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;docker compose&lt;/a&gt; (formerly fig) as a way to &amp;ldquo;container-ize&amp;rdquo; a simple Python web application (Flask, Postgres, RabbitMQ). It occurred to me that &lt;code&gt;docker-compose&lt;/code&gt; would be a good way to accomplish this goal. The advantage of using docker-compose over using docker directly is that you can avoid writing &amp;ldquo;glue&amp;rdquo; code by defining links between containers. The example I discuss below is for ZAP, but you could use it for any other web application scanner that can be run in headless mode.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-problem&#34;&gt;The Problem&lt;/h3&gt;
+
+&lt;p&gt;If you haven&amp;rsquo;t read Anshuman&amp;rsquo;s post yet, I suggest that you &lt;a href=&#34;https://abhartiya.wordpress.com/2015/07/09/automating-zap-running-against-a-web-application-in-docker-containers/&#34;&gt;check it out&lt;/a&gt; to get an understanding of what he&amp;rsquo;s trying to accomplish. The goal is to automate scans against a web application that runs in a docker container. This is useful if you&amp;rsquo;re trying to set-up some sort of CI infrastructure that automatically scans new builds of the web application. We want to ensure that no human interaction is required, and reports generated from scans are saved somewhere on the host machine (outside the containers) to be processed or read.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-setup&#34;&gt;The Setup&lt;/h3&gt;
+
+&lt;p&gt;To accomplish this, I&amp;rsquo;ll use docker-compose instead of plain docker. To follow along, install docker-compose &lt;a href=&#34;https://docs.docker.com/compose/#installation-and-set-up&#34;&gt;from here&lt;/a&gt;. We&amp;rsquo;ll use three containers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The application being tested. For this example, I&amp;rsquo;ll use the famous WebGoat application because, well, goats.&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&#34;https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project&#34;&gt;Zed Attack Proxy&lt;/a&gt;. You could use any other application scanner that supports automation here.&lt;/li&gt;
+&lt;li&gt;A container that contains custom scripts. We could build on the ZAP container too, but I&amp;rsquo;ve found that this is more flexible.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The idea is to spin up the test application, followed by an instance of ZAP. After these containers are up, we want to connect to the ZAP container and direct it to scan the target and save the results once done.&lt;/p&gt;
+
+&lt;h3 id=&#34;docker-composing-all-the-things&#34;&gt;Docker-composing All The Things&lt;/h3&gt;
+
+&lt;p&gt;Using docker-compose is easy. All you need is one YAML file to define your containers and how they&amp;rsquo;re linked. Here&amp;rsquo;s what it looks like for my setup:
+&lt;script src=&#34;https://gist.github.com/ritesh/2fcd9fd32995ffeb30f1.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;To test my setup out, start by &lt;a href=&#34;https://github.com/ritesh/dockerscan&#34;&gt;cloning this repo&lt;/a&gt;. Once you have cloned it, run &lt;code&gt;docker-compose build&lt;/code&gt;. This will take a while to download images for the first time. Once this is done, run &lt;code&gt;docker-compose up&lt;/code&gt; to bring up all containers listed in &lt;code&gt;docker-compose.yml&lt;/code&gt;. After the last container exits, you should have a report from the ZAP scan in &lt;code&gt;reports/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, what just happened? &lt;code&gt;docker-compose&lt;/code&gt; looks at the YAML file and figures out what containers need to be started in what sequence. It starts the &amp;ldquo;target&amp;rdquo; container, which contains our test application (WebGoat in this case), followed by the ZAP container. The &amp;ldquo;tooling&amp;rdquo; container is started last. The &lt;code&gt;Dockerfile&lt;/code&gt; for tooling is defined in &lt;code&gt;tools&lt;/code&gt;. It builds on the &lt;code&gt;python 2.7&lt;/code&gt; image and contains a script to run the ZAP scan. You could add more tools/scripts here that you might want to run against the web application.&lt;/p&gt;
+
+&lt;p&gt;Hope this gives you ideas for workflows for automating scans. Send comments/questions/flames to &lt;a href=&#34;https://twitter.com/rsinha&#34;&gt;@rsinha&lt;/a&gt;.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+  </channel>
+</rss>

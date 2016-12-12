@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ritesh">
+    <meta name="description" content="Stuff I rant about">
+    <meta name="generator" content="Hugo 0.17" />
+
+    
+    <title>Giving up on Linux desktop &middot; @rsinha’s blog</title>
+
+    <link rel="stylesheet" href="https://blog.rsinha.org/css/weblog.css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/css/lightgallery.min.css" type="text/css" />
+    
+
+
+    
+		<link href="https://blog.rsinha.org/index.xml" rel="alternate" type="application/rss+xml" title="blog" />
+		
+  </head>
+  <body class="site">
+
+<header>
+  <nav>
+    <h1><a href="/">@rsinha</a>’s blog.</h1>
+    <div class="menu">
+      
+      <ul>
+        
+            <li>
+              <a href="/posts/">Posts</a>
+              
+                <a href="/posts/index.xml"><img src="/img/rss.svg" class="rss-icon" /></a>
+              
+            </li>
+        
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+  <main class="content">
+
+    <article class="post">
+      
+        <h2><a rel="full-article" href="https://blog.rsinha.org/2012/09/15/giving-up-on-native-linux/">Giving up on Linux desktop</a></h2>
+      
+
+      <div class="postmeta">Posted on <time datetime="2012-09-15 21:36:28 &#43;0000 UTC" pubdate="">September 15, 2012</time> in
+        <span class="categories">
+          
+            <a class="category" href="/categories/linux">linux</a>
+          
+        </span>
+      </div>
+
+      <p>
+        <p>I recently acquired a shiny new-ish desktop from a friend. Intel Core-i7 with 8 cores and a whopping 12 GB of RAM with a high-end ATI Radeon graphics card. It came with Windows 7 pre-installed and I decided to install Ubuntu 12.04 amd64 as a dual boot option. Initially, I had some trouble getting it to install on the inbuilt SSD (which should have been the first warning sign in retrospect). Having gotten it to install on the slower 500GB HDD, I was quite happy with it until I ran into the first few glitches. These issues were small to begin with but they irked me enough to get rid of Ubuntu altogether from the system.</p>
+
+<ul>
+<li><p>The audio was glitchy. At first I thought this had something to do with Adobe Flash which has historically been rubbish on Linux and <em>especially</em> on 64 bit Linux. I removed amd64 and replaced it with the 32 bits release instead. It turned out that audio was glitchy even for other applications (Rhythmbox, Spotify) regardless of the bitness. By glitchy I mean that it stuttered randomly if I so much as scrolled inside a browser window. As a responsible netizen, I&rsquo;ve reported a bug but I don&rsquo;t expect it to be fixed anytime soon.</p></li>
+
+<li><p>Suspend to RAM was not available as an option. Suspend to disk worked sometimes but the computer often refused to &ldquo;wake up&rdquo; after going to sleep.</p></li>
+
+<li><p>I tried to like Unity, I really did. It didn&rsquo;t really work for my workflow which involves running multiple terminals. There might be an easier way to smoothly switch between windows of the same application but I could not find it. OSX, for example, has this nice feature that lets you use number keys to switch between terminals (Cmd+1, Cmd+2, etc.).</p></li>
+
+<li><p>Compiz was also glitchy for me, even with the proprietary fglrx drivers.</p></li>
+</ul>
+
+<p>I love the power of having a bash shell at hand but using Linux as a full time desktop OS is <em>still</em> a nightmare. I want to just boot my system and get shit done and I don&rsquo;t want to have to fiddle around with pulseaudio or any other crap. I have an older laptop running the old Ubuntu LTS just fine; I think that if you have old or fully supported hardware (mostly anything but ATI graphics), it <em>just works</em>. In any case, I suspect I&rsquo;ll probably try again when the next Ubuntu LTS release is out. Until then I am grudgingly obliged to run Ubuntu as a virtual machine on the Windows system.</p>
+
+<p>A quick tip to get rid of grub from within Windows 7. Use <a href="http://www.sysint.no/nedlasting/mbrfix.htm">MbrFix</a>. You might want to be careful though, the wrong command could wreck your hard disk(s).</p>
+
+      </p>
+    </article>
+
+
+  </main>
+
+<footer>
+  <div class="footer_text">
+      <div>
+        <h3>Hi, <a href="/about">I'm Ritesh</a></h3>
+        <p>
+          I’m an information security person who enjoys learning new things. I'm easily <a href="http://xkcd.com/356/">nerd-sniped</a>. I also enjoy taking pictures. Find me <a href="https://twitter.com/rsinha">@rsinha</a> on twitter.
+
+        </p>
+      </div>
+      <div>
+          <h3><a href="https://www.flickr.com/photos/55603500@N04/">Photo Stream</a></h3>
+          <div id="photos"></div>
+        </div>
+      </div>
+  </div>
+
+  
+    <div class="footer_copyright">
+      &copy; 2016 <a href="/about">Ritesh Sinha</a>
+       - Made in London, UK
+    </div>
+  
+</footer>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/js/lightgallery-all.min.js" charset="utf-8"></script>
+    <script src="/js/weblog.js" charset="utf-8"></script>
+    
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    _paq.push(['setTrackerUrl',  'https://api-5c01b6185ffbf6bfab59ddcc27f22388.rsinha.sandcats.io']);
+    _paq.push(['setSiteId', 1]);
+    _paq.push(['setApiToken', 'EJbYxKi8JhWDD3E7RJr30C-fSnfLkh5oL33Ju4CqaxI']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src='https://32jt3wu5wyoczgdu3w3b.rsinha.sandcats.io/embed.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+
+    <script type="text/javascript">
+
+  
+  $(function() {
+    
+    $.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?id=55603500@N04&format=json&jsoncallback=?", function(data) {
+      iweblog.application.displayImages(data, 8);
+    });
+  });
+
+</script>
+
+    
+  </body>
+</html>
+
