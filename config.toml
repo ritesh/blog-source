@@ -6,7 +6,6 @@ title= "blog"
 Paginate = 10
 SectionPagesMenu = "main"
 canonifyurls = false
-
 [author]
 	Handle = "rsinha"
 	FirstName = "Ritesh"
@@ -14,6 +13,7 @@ canonifyurls = false
 	AboutPage = "/about"
 	Location = "London, UK"
 	FlickrID = "55603500@N04"
+
 [params]
 	Description = "Stuff I rant about"
 	ShowCopyright = true 
