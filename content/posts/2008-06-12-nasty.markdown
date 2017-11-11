@@ -1,0 +1,23 @@
+---
+date: 2008-06-12 01:41:00+00:00
+slug: nasty
+title: NASty
+wordpress_id: 101
+categories:
+- freenas
+- nas
+- openfiler
+- vmware
+---
+
+So a friend wanted to implement some sort of NAS setup on his old, decaying PC. The friend in question has quite a large amount of legitimate *ahem* data. I recommended that he use Openfiler. I found the [rPath version ](http://www.rpath.org/rbuilder/project/openfiler/) first and so I decided to check it out. I keep hearing that rPath builds very good task specific Machines, so I decided to give it a spin. rPath linux describes itself as a meta-distribution. God knows what that means, I was too lazy to look it up. 
+
+Downloaded a copy of the installation CD rather than a pre-built VM since my friend would probably use a physical install. Standard install, resembles the CentOS installation (It even uses Anaconda, so I'm guessing that it's a customized RedHat distribution). The CD is about 350 MB or so, after installation it takes up 750 MB of space. Quite a lot for a NAS appliance wouldn't you say? The application throws up a friendly URL that you can access it with. Like an idiot I logged in as root and didn't get much of an administrative interface. Upon RTFM, I realized that the admin account is openfiler with the default password as 'password'. One more reason to always [read the fine manual.](http://wwwold.openfiler.com/docs/manual/)
+
+Many, many, many configuration options are available. That is to say this is a serious NAS offering. Inbuilt LDAP, FTP, SSH, CIFS/SMB. The sad part is I was too lazy to try any of them out. 
+
+Then I read about FreeNAS and their [killer 15MB award winning Virtual Machine ](http://www.vmware.com/appliances/directory/168). So I start up VMware and give it a go. And my, does it work like a charm. Out of the box. Nothing else required. The argument here would probably be that FreeNAS is quite insecure by default, but what the heck, I know what I'm doing and it's my goddamn home network. I will configure security later. The main feature that I care about, SMB, works perfectly. Haven't tested other features, but I'm guessing they work too.  
+
+Wish I had an old PC to turn into a home file server. Ah well, VMWare keeps me alive until then.
+
+

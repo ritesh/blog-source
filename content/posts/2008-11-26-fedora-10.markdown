@@ -1,0 +1,14 @@
+---
+date: 2008-11-26 00:31:00+00:00
+slug: fedora-10 
+title: Fedora 10 released
+wordpress_id: 68
+---
+
+Fedora 10 released  
+
+
+I can hardly wait to test it out. Was released at 10 am EST today. Get your copies while they're hot!! 
+
+  
+[Fedora torrents](http://torrent.fedoraproject.org/)

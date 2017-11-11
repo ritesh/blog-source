@@ -1,0 +1,8 @@
+---
+date: 2011-02-24 00:47:00+00:00
+slug: cdecl
+title: cdecl
+wordpress_id: 11
+---
+
+Found this wonderful way to understand complicated c code. Cdecl at [www.cdecl.org](http://www.cdecl.org)
