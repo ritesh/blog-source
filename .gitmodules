@@ -1,6 +1,3 @@
-[submodule "public"]
-	path = public
-	url = git@github.com:ritesh/ritesh.github.io.git
 [submodule "themes/internet-weblog"]
 	path = themes/internet-weblog
 	url = https://github.com/jnjosh/internet-weblog.git
