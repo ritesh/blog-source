@@ -1,13 +1,8 @@
 ---
-label: Building Dockerized Application Security Scanners
-hide_body: 
-is_partial: 
+label: PostNew
+hide_body: false
+is_partial: false
 fields:
-- name: date
-  label: Date
-  type: datetime
-  hidden: false
-  default: ''
 - name: categories
   label: Categories
   type: tag_list
