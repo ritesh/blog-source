@@ -1,7 +1,7 @@
 ---
-label: The Go Programming Language
-hide_body: 
-is_partial: 
+label: micropost
+hide_body: false
+is_partial: false
 fields:
 - name: date
   label: Date
