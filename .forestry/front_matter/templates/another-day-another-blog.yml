@@ -24,3 +24,5 @@ fields:
   hidden: false
   default: ''
 - type: tag_list
+pages:
+- content/posts/foobar.md
