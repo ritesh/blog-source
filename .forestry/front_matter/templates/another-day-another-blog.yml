@@ -1,7 +1,7 @@
 ---
-label: Another day, another blog
-hide_body: 
-is_partial: 
+label: Sample Front Matter
+hide_body: false
+is_partial: false
 fields:
 - name: date
   label: Date
