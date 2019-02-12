@@ -1,7 +1,6 @@
 +++
 categories = ["til", "aws", " lambda "]
 date = "2019-02-12T14:37:12+00:00"
-draft = true
 summary = "tl;dr Test a lambda function locally"
 title = "Integration Testing AWS Lambda"
 url = "integration-testing-aws-lambda"
