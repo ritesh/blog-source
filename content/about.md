@@ -1,7 +1,7 @@
 +++
 
 +++
-Hello! I'm Ritesh. I work in InfoSec and I enjoy building things. I have a keen interest in learning new things both in and outside my field of work. I'm pretty good at trivia and obscure facts. If you'd like to get in touch or want to say hi, find me on twitter [@rsinha](https://twitter.com/rsinha).
+Hello! I'm Ritesh. I'm pretty good at trivia and obscure facts. If you'd like to get in touch or want to say hi, find me on twitter [@rsinha](https://twitter.com/rsinha).
 
 ***
 
