@@ -9,7 +9,7 @@ url = "integration-testing-aws-lambda"
 +++
 # Integration Testing Lambda Functions Locally
 
-Never had to test AWS Lambda functions locally (test in production YOLO). While walking through the docs with a colleague, I found that the nifty way to test a lambda function created [using SAM](https://docs.aws.amazon.com/lambda/latest/dg/serverless_app.html) is to run:
+Never had to test AWS Lambda functions locally (test in production YOLO). While walking through the docs with a colleague, we found that the nifty way to test a lambda function created [using SAM](https://docs.aws.amazon.com/lambda/latest/dg/serverless_app.html) is to run:
 
 `$ sam local start-lambda`
 
@@ -50,4 +50,4 @@ This is from the docs, but it took me a while to figure out that `FunctionName` 
 
 The first run will be slow as SAM will fetch the container for your function runtime, subsequent runs should be quicker (adjust `read_timeout`accordingly).
 
-If you're a security nerd, the bits above that say `use_ssl=False` and `verify=False` should give you pause. In this instance, you're connecting to a service locally and not reaching out to the internet, so you're OK. 
+If you're a security nerd, the bits above that say `use_ssl=False` and `verify=False` should give you pause. In this instance, you're connecting to a service locally and not reaching out to the internet, so you're OK.
