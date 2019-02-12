@@ -24,5 +24,4 @@ fields:
   hidden: false
   default: ''
 pages:
-- content/til.md
 - content/posts/testing-an-aws-lambda-function-locally.md
