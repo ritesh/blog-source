@@ -1,19 +1,19 @@
 +++
-categories = ["til", " newstuff"]
+categories = ["til", "aws", " lambda "]
 date = "2019-02-12T14:37:12+00:00"
 draft = true
-summary = "An (unorganised) dump of things I'm looking at these days"
-title = "TIL"
-url = "til"
+summary = "tl;dr Test a lambda function locally"
+title = "Integration Testing AWS Lambda"
+url = "integration-testing-aws-lambda"
 
 +++
-# Feb 2019
+# Integration Testing Lambda Functions Locally
 
-Never had to test AWS Lambda functions locally (test in production YOLO). While walking through the docs with a colleague, I found that the nifty way to test a SAM lambda function is to run:
+Never had to test AWS Lambda functions locally (test in production YOLO). While walking through the docs with a colleague, I found that the nifty way to test a lambda function created [using SAM](https://docs.aws.amazon.com/lambda/latest/dg/serverless_app.html) is to run:
 
 `$ sam local start-lambda`
 
-In the directory where you have your SAM `template.yml`. This is `LambdaInvoking` the function, as opposed to passing it an event via API Gateway. From the docs, write a quick script like this to then invoke the Lambda. 
+In the directory where you have your SAM `template.yml`. This is `LambdaInvoking` the function, as opposed to passing it an event via API Gateway. From the docs, write a quick script like this to then invoke the Lambda.
 
     import boto3
     import botocore
@@ -46,4 +46,8 @@ In the directory where you have your SAM `template.yml`. This is `LambdaInvoking
     # Verify the response
     assert response == "Hello World"
 
-This is from the docs, but it took me a while to figure out that `FunctionName` above needs to refer to the _logical_ name of your Lambda function in the CloudFormation template. Note that the first run will be slow as SAM will fetch the container for your function runtime, subsequent runs should be quicker (adjust `read_timeout`accordingly). 
+This is from the docs, but it took me a while to figure out that `FunctionName` above needs to refer to the _logical_ name of your Lambda function in the CloudFormation template.
+
+The first run will be slow as SAM will fetch the container for your function runtime, subsequent runs should be quicker (adjust `read_timeout`accordingly).
+
+If you're a security nerd, the bits above that say `use_ssl=False` and `verify=False` should give you pause. In this instance, you're connecting to a service locally and not reaching out to the internet, so you're OK. 
