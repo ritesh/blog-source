@@ -44,4 +44,3 @@ via: [http://blog.backblaze.com/2009/09/01/petabytes-on-a-budget-how-to-build-ch
 
 Very interesting setup!
 
-![](https://blogger.googleusercontent.com/tracker/2563657433103433322-1964047520418771335?l=arbitness.blogspot.com)

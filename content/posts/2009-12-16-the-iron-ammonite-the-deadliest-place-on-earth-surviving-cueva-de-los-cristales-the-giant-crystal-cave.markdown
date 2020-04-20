@@ -28,4 +28,3 @@ via [ironammonite.com](http://www.ironammonite.com/2009/12/surviving-cueva-de-lo
 
 Brilliant account of a visit to the Giant Crystal Cave.
 
-![](https://blogger.googleusercontent.com/tracker/2563657433103433322-4704231898389758083?l=arbitness.blogspot.com)

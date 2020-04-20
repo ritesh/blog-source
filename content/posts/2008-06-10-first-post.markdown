@@ -24,4 +24,3 @@ http://www.engadget.com/2008/04/25/the-second-gen-iphone-3g-gps-only-slightly-th
   
 I've just realized how hard it is to write. With every passing sentence I feel a grammatical, logical or spelling error coming on. Hats off to people who churn out pages after pages of blogs everyday.
 
-![](https://blogger.googleusercontent.com/tracker/2563657433103433322-8202164195679365498?l=arbitness.blogspot.com)

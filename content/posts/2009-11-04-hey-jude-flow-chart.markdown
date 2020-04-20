@@ -47,12 +47,8 @@ categories:
 
 via [feeds.laughingsquid.com](http://feeds.laughingsquid.com/~r/laughingsquid/~3/5rHh5OM-SGk/)
 
-  
 
 
 So useful!
 
-  
 
-
-![](https://blogger.googleusercontent.com/tracker/2563657433103433322-3387237815931038311?l=arbitness.blogspot.com)

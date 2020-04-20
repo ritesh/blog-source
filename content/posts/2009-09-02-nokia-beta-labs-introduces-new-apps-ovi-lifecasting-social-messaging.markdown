@@ -21,4 +21,3 @@ via [feedproxy.google.com](http://feedproxy.google.com/%7Er/Techcrunch/%7E3/LZd-
 
 If it's anything like the Ovi Store, kill it with fire!
 
-![](https://blogger.googleusercontent.com/tracker/2563657433103433322-7187455843933411361?l=arbitness.blogspot.com)

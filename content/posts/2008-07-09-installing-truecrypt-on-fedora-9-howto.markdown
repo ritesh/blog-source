@@ -6,14 +6,10 @@ slug: installing-truecrypt-on-fedora-9-howto
 title: Installing TrueCrypt on Fedora 9 HOWTO
 wordpress_id: 97
 categories:
-- '6'
-- '9'
 - fedora
-- fedora9
 - howto
 - install
 - truecrypt
-- truecrypt6
 ---
 
 On the 4th of July, the TrueCrypt team released version 6.0 of its amazing product. I am generally quite excited by new software releases and can't wait to try them out as soon as possible. From the web-site, some of the new features in the TrueCrypt version 6.0 are:
@@ -69,5 +65,3 @@ http://www.howtoforge.com/encrypting-file-systems-with-truecrypt-on-fedora8
 
   
 Hope this helps.
-
-![](https://blogger.googleusercontent.com/tracker/2563657433103433322-8521877477819807390?l=arbitness.blogspot.com)

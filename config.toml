@@ -2,7 +2,7 @@ baseurl= "https://blog.rsinha.org/"
 languageCode= "en-gb"
 pygmentsstyle = "vim"
 theme = "hugo-theme-yinyang"
-title= "blog"
+title= "Ritesh Sinha's blog"
 Paginate = 10
 SectionPagesMenu = "main"
 canonifyurls = false
@@ -11,36 +11,18 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 	Handle = "rsinha"
 	FirstName = "Ritesh"
 	LastName = "Sinha"
-	AboutPage = "/about"
-	Location = "London, UK"
-	FlickrID = "55603500@N04"
-
 [params]
 	mainSections = ["posts"]
 	headTitle = "Ritesh Sinha"
-	Description = "Stuff I rant about"
-	ShowCopyright = true 
-	RSSEnabled = true 
-	RSSSections = ["Posts"] 
 [[params.socials]]
 	name = "Twitter"
 	link = "https://twitter.com/rsinha"
 [[params.socials]]
 	name = "Github"
 	link = "https://github.com/ritesh"
-
+[[params.socials]]
+	name = "About Me"
+	link = "/about/"
 [taxonomies]
 	tag = "tags"
 	series = "series"
-
-#[[menu.main]]
-#  name = "Posts"
-#  weight = 1
-#  identifier = "posts"
-#  url = "/posts/"
-
-#[[menu.main]]
-#  name = "Snippets"
-#  weight = 2
-#  identifier = "microposts"
-#  url = "/microposts/"

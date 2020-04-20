@@ -6,7 +6,6 @@ title = "Testing an AWS Lambda function locally"
 url = "testing-aws-lambda-locally"
 
 +++
-# Integration Testing Lambda Functions Locally
 
 Never had to test AWS Lambda functions locally (test in production YOLO).  I've always ended up writing toy functions that I test using the console. For functions that are non-trivial and have to process different kinds of input events, it's probably best to test them locally to discover any regressions early on.
 
