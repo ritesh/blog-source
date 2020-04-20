@@ -33,7 +33,7 @@ instant_preview: true
 build:
   preview_env:
   - HUGO_ENV=staging
-  - HUGO_VERSION=0.42.2
+  - HUGO_VERSION=0.69.0
   preview_output_directory: public
   preview_docker_image: forestryio/build:latest
   mount_path: "/opt/buildhome/repo"
