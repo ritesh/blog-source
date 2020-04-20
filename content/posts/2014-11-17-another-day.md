@@ -6,8 +6,7 @@ summary: This is another attempt at a blog. If I can manage more than 140 chars 
 title: Another day, another blog
 url: /2014/11/17/another-day/
 ---
-
-<pre>
+```
 Teathet6quiu yah4ooxi7AhB ciezei1Gahwu Quui2queixie 
 eeveahuy2ENi eoj8sa5iew4S eibeo8AuPhoo eeZe4peighoh 
 ao4oPhashiez Mee8quahmeet quae6eiVaep6 aep6quu9eiYo 
@@ -28,4 +27,4 @@ Deijimoa9sie Kai6Wah3johb Eegh3Eegho0f ooRie0AhR8ie
 haiviuf7Ahno EiQu5theeCh7 Eeyeidae4uus lohzaeGhiph3 
 ieC0zaepeJ6a NaiTh4poh6we AiPuvohM6ahc Eew0see3eeph 
 ouNgeiS2thae Oon4cagh4ohf gaewahChei3f ainiRi7ein0h 
-</pre>
+```
