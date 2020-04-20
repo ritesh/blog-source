@@ -1,4 +1,4 @@
-Copyright (c) 2014-2015 Ritesh Sinha
+Copyright (c) 2014-2020 Ritesh Sinha
 
 MIT License
 
