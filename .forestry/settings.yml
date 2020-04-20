@@ -15,11 +15,6 @@ sections:
   create: all
   match: "**/*"
 - type: directory
-  path: content/microposts
-  label: Microposts
-  create: all
-  match: "**/*"
-- type: directory
   path: data
   label: Data
   create: none
