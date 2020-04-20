@@ -6,5 +6,5 @@
 	url = https://github.com/joway/hugo-theme-yinyang
 [submodule "public"]
 	path = public
-	url = https://github.com/ritesh/ritesh.github.io.git
+	url = git@github.com:ritesh/ritesh.github.io.git 
 	branch = master
