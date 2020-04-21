@@ -1,6 +1,3 @@
-[submodule "themes/internet-weblog"]
-	path = themes/internet-weblog
-	url = https://github.com/jnjosh/internet-weblog.git
 [submodule "themes/hugo-theme-yinyang"]
 	path = themes/hugo-theme-yinyang
 	url = https://github.com/joway/hugo-theme-yinyang
