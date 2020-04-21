@@ -1,6 +1,6 @@
 [submodule "themes/hugo-theme-yinyang"]
 	path = themes/hugo-theme-yinyang
-	url = https://github.com/joway/hugo-theme-yinyang
+	url = git@github.com:ritesh/hugo-theme-yinyang.git
 [submodule "public"]
 	path = public
 	url = git@github.com:ritesh/ritesh.github.io.git 
