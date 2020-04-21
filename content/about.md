@@ -5,4 +5,4 @@ Hello! I'm Ritesh. I'm pretty good at trivia and obscure facts. If you'd like to
 
 ***
 
-This blog uses the [Hugo](https://gohugo.io) static site generator with the [yinyang](https://themes.gohugo.io/hugo-theme-yinyang/) theme.
+This blog uses the [Hugo](https://gohugo.io) static site generator with a forked version of the [yinyang](https://github.com/ritesh/hugo-theme-yinyang) theme.
