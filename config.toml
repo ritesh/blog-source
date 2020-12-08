@@ -1,6 +1,5 @@
 baseurl= "https://blog.rsinha.org/"
 languageCode= "en-gb"
-pygmentsstyle = "vim"
 theme = "hugo-theme-yinyang"
 title= "Ritesh Sinha's blog"
 Paginate = 10

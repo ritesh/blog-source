@@ -24,8 +24,8 @@ git commit -m "$msg"
 # Push source and build repos.
 git push origin master
 
-#printf "\033[0;32mSwitching back to commit updates to public submodule...\033[0m\n"
-#cd ..
-#git add public
-#git commit -am "
-#git push
+printf "\033[0;32mSwitching back to commit updates to public submodule...\033[0m\n"
+cd ..
+git add public
+git commit -am "Updated site"
+git push
