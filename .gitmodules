@@ -5,3 +5,6 @@
 	path = public
 	url = git@github.com:ritesh/ritesh.github.io.git 
 	branch = master
+[submodule "themes/PaperMod"]
+	path = themes/PaperMod
+	url = git@github.com:ritesh/hugo-PaperMod.git

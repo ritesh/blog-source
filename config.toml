@@ -1,18 +1,26 @@
 baseurl= "https://blog.rsinha.org/"
 languageCode= "en-gb"
-theme = "hugo-theme-yinyang"
-title= "Ritesh Sinha's blog"
+theme = "PaperMod"
+title= "Ritesh Sinha's Ramblings"
 Paginate = 10
 SectionPagesMenu = "main"
 canonifyurls = false
-disableKinds = ["taxonomy", "taxonomyTerm"]
 [author]
 	Handle = "rsinha"
 	FirstName = "Ritesh"
 	LastName = "Sinha"
+[[menu.main]]
+	identifier = "example"
+	name = "About"
+	url = "/about/"
+	weight = 10	
 [params]
 	mainSections = ["posts"]
 	headTitle = "Ritesh Sinha"
+	env = "production"
+	defaultTheme = "dark"
+	ShowShareButtons = false
+	author = "rsinha"
 [[params.socials]]
 	name = "Twitter"
 	link = "https://twitter.com/rsinha"
@@ -22,6 +30,3 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 [[params.socials]]
 	name = "About Me"
 	link = "/about/"
-[taxonomies]
-	tag = "tags"
-	series = "series"
