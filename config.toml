@@ -21,6 +21,19 @@ canonifyurls = false
 	defaultTheme = "dark"
 	ShowShareButtons = false
 	author = "rsinha"
+[params.homeInfoParams]
+Title = "Hi there!"
+Content = """\
+Hello! I'm Ritesh. 
+If you'd like to get in touch or want to say hi, 
+find me on twitter [@rsinha](https://twitter.com/rsinha).
+ I probably spend more time tweaking the CSS on this blog as opposed to writing any useful content. 
+ Going to try and write more soon! \
+"""
+[[params.socialIcons]]
+foo = "bar"
+foo2 = "bar"
+
 [[params.socials]]
 	name = "Twitter"
 	link = "https://twitter.com/rsinha"
