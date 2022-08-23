@@ -1,3 +1,7 @@
 [submodule "themes/hugo-PaperMod"]
 	path = themes/hugo-PaperMod
 	url = git@github.com:ritesh/hugo-PaperMod.git
+[submodule "public"]
+	path = public
+	url = git@github.com:ritesh/ritesh.github.io.git
+        branch = master
