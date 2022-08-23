@@ -1,6 +1,6 @@
 baseurl= "https://blog.rsinha.org/"
 languageCode= "en-gb"
-theme = "PaperMod"
+theme = "hugo-PaperMod"
 title= "Ritesh's Ramblings"
 Paginate = 10
 SectionPagesMenu = "main"
@@ -10,7 +10,7 @@ canonifyurls = false
 	FirstName = "Ritesh"
 	LastName = "Sinha"
 [[menu.main]]
-	identifier = "example"
+	identifier = "about"
 	name = "About"
 	url = "/about/"
 	weight = 10	
