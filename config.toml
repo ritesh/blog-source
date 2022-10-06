@@ -17,11 +17,6 @@ enableRobotsTXT = true
 	Handle = "rsinha"
 	FirstName = "Ritesh"
 	LastName = "Sinha"
-[[menu.main]]
-	identifier = "about"
-	name = "About"
-	url = "/about/"
-	weight = 10	
 [params]
 	mainSections = ["posts"]
 	defaultTheme = "dark"
