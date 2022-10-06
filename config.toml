@@ -1,10 +1,18 @@
-baseurl= "https://blog.rsinha.org/"
+baseURL= "https://blog.rsinha.org/"
 languageCode= "en-gb"
-theme = "hugo-PaperMod"
+theme = "ananke"
 title= "Ritesh's Ramblings"
-Paginate = 10
-SectionPagesMenu = "main"
 canonifyurls = false
+DefaultContentLanguage = "en"
+SectionPagesMenu = "main"
+Paginate = 10
+enableRobotsTXT = true
+
+[languages]
+	[languages.en]
+		title = "Ritesh's Ramblings"
+		weight = 1
+		contentDir = "content"
 [author]
 	Handle = "rsinha"
 	FirstName = "Ritesh"
@@ -16,30 +24,13 @@ canonifyurls = false
 	weight = 10	
 [params]
 	mainSections = ["posts"]
-	headTitle = "Ritesh Sinha"
-	env = "production"
 	defaultTheme = "dark"
-	ShowShareButtons = false
+	description = "A weird collection of posts"
+	background_color_class = "bg-black"
 	author = "rsinha"
-[params.homeInfoParams]
-Title = "Hi there!"
-Content = """\
-Hello! I'm Ritesh. 
-If you'd like to get in touch or want to say hi, 
-find me on twitter [@rsinha](https://twitter.com/rsinha).
- I probably spend more time tweaking the CSS on this blog as opposed to writing any useful content. 
- Going to try and write more soon! \
-"""
-[[params.socialIcons]]
-foo = "bar"
-foo2 = "bar"
-
-[[params.socials]]
+[[params.ananke_socials]]
 	name = "Twitter"
 	link = "https://twitter.com/rsinha"
-[[params.socials]]
+[[params.ananke_socials]]
 	name = "Github"
 	link = "https://github.com/ritesh"
-[[params.socials]]
-	name = "About Me"
-	link = "/about/"
