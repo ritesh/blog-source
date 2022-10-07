@@ -8,6 +8,17 @@ SectionPagesMenu = "main"
 Paginate = 10
 enableRobotsTXT = true
 
+[markup]
+	[highlight]
+		codeFences = true
+		guessSyntax = false
+		hl_Lines = ""
+		lineNoStart = 1
+		lineNos = false
+		lineNumbersInTable = true
+		noClasses = false
+		tabWidth = 4
+
 [languages]
 	[languages.en]
 		title = "Ritesh's Ramblings"
@@ -21,8 +32,11 @@ enableRobotsTXT = true
 	mainSections = ["posts"]
 	defaultTheme = "dark"
 	description = "A weird collection of posts"
-	background_color_class = "bg-black"
+	background_color_class = "bg-near-black"
 	author = "rsinha"
+	post_content_classes = "athelas bg-near-white"
+	custom_css = ["css/custom.css", "css/syntax-monokai.css"]
+
 [[params.ananke_socials]]
 	name = "Twitter"
 	link = "https://twitter.com/rsinha"

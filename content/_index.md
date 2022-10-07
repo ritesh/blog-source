@@ -1,7 +1,9 @@
 ---
-title: "Ritesh's Ramblings Blog"
+title: "I write, erase, rewrite, /
+Erase again, and then /
+A poppy blooms"
 
-description: "A weird collection of posts"
+description: "A weird collection of posts written infrequently over many years"
 theme_version: '2.8.2'
 ---
-Welcome to my blog, where I try to post when I can. I'm also trying a [personal blog](https://world.hey.com/ritesh/), will likely have more blog sites than posts! 
+Welcome to my blog! This blog is a collection of posts with no particular theme in mind.  

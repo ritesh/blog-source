@@ -1,6 +1,6 @@
 ---
 title: "About"
-description: "Undefined is not an object"
+description: "About this Blog"
 featured_image: '/images/1.jpg'
 menu:
   main:
@@ -8,4 +8,6 @@ menu:
 ---
 {{< figure src="/images/1.jpg" title="Man sitting outside an M& S store in Glasgow" >}}
 
-Hello! Thanks for taking the time to visit my blog, which I'm not good at updating. If you want to chat email me at riteshkumarsinha AT gmail dot com. Not so good with twitter these days!
+Hi! I'm Ritesh Sinha. I work with computers and am easily distracted. This blog is a collection of posts from different sites, and you'll find a mix of technical and non-technical content. 
+
+If you want to chat, email me at my first name AT hey DOT com. 

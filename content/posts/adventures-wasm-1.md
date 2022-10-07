@@ -1,7 +1,7 @@
 +++
 categories = [""]
 tags = ["webassembly", "rust", "newbie"]
-title = "Adventures Wasm 1"
+title = "Adventures Wasm: Part One"
 date = "2022-10-06T16:22:48+01:00"
 draft = false
 +++
@@ -12,11 +12,11 @@ draft = false
 
 I've been on the hype-train again, and the flavour of the month (year? decade?) is Web Assembly. During breaks between the job that I'm paid to do, I like to keep up to date on new things and sharpen my technical skills to keep up with the clever people on my team. In this post you can follow my adventures in learning about an unfamiliar tech stack. 
 
-Web Assembly, in a nutshell, allows you to use your favourite programming language to write code that can target web-browsers by compiling it into a WASM blob. Your code in Go/Rust/Python goes in -> \[\*magic compilation step\*\] -> a WASM binary comes out.  The compilation step converts your code into instructions for a stack-machine, which can be run either in your browser or in a non-browser context. 
+Web Assembly, in a nutshell, allows you to use your favourite programming language to write code that can target web-browsers by compiling it into a WASM blob. Your code in Go/Rust/Python goes in -> *magic compilation step** -> a WASM binary comes out.  The compilation step converts your code into instructions for a stack-machine, which can be run either in your browser or in a non-browser context. 
 
 If you're curious as to what it looks like when compiled for the web here's an excerpt from a WASM file. Looks a bit like x86 assembly or decompiled Java, no?
 
-```
+```javascript
  global.get $global0
     local.set $var6
     i32.const 2464
@@ -79,7 +79,7 @@ For the majority of the code, I'm struggling with figuring out how to coerce a R
 
 For example, the TypeScript/JavaScript code to enrol credentials, via [this lovely post](https://www.imperialviolet.org/2022/09/22/passkeys.html):
 
-```
+``` javascript
 var createOptions : CredentialCreationOptions = {
   publicKey: {
     rp: {
@@ -115,7 +115,7 @@ You create a `CredentialCreationOptions`  object which contains parameters that 
 
 The equivalent using `web_sys` in Rust
 
-```
+```rust
 let pk1 = PubKeyAlg {
                 r#type: "public-key".into(),
                 alg: -7,
@@ -189,7 +189,3 @@ So far, I have the bare minimum working. I can take events from JS and pass them
 * Get the flow working and then check it for correctness against a proper WebAuthn/PassKeys flow
 
 Not sure how far I'll make it, but stay tuned!
-
-
-
-
