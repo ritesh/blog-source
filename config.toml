@@ -1,6 +1,6 @@
 baseURL= "https://blog.rsinha.org/"
 languageCode= "en-gb"
-theme = "ananke"
+theme = "hugo-PaperMod"
 title= "Ritesh's Ramblings"
 canonifyurls = false
 DefaultContentLanguage = "en"
@@ -10,7 +10,7 @@ enableRobotsTXT = true
 googleAnalytics = "UA-65020746-1"
 
 [markup]
-	[highlight]
+	[markup.highlight]
 		codeFences = true
 		guessSyntax = false
 		hl_Lines = ""
@@ -25,22 +25,18 @@ googleAnalytics = "UA-65020746-1"
 		title = "Ritesh's Ramblings"
 		weight = 1
 		contentDir = "content"
-[author]
-	Handle = "rsinha"
-	FirstName = "Ritesh"
-	LastName = "Sinha"
+
 [params]
 	mainSections = ["posts"]
 	defaultTheme = "dark"
 	description = "A weird collection of posts"
-	background_color_class = "bg-near-black"
 	author = "rsinha"
-	post_content_classes = "athelas bg-near-white"
-	custom_css = ["css/custom.css", "css/syntax-monokai.css"]
+	ShowReadingTime = true
+	ShowCodeCopyButtons = true
 
-[[params.ananke_socials]]
-	name = "Twitter"
-	link = "https://twitter.com/rsinha"
-[[params.ananke_socials]]
-	name = "Github"
-	link = "https://github.com/ritesh"
+[[params.socialIcons]]
+	name = "twitter"
+	url = "https://twitter.com/rsinha"
+[[params.socialIcons]]
+	name = "github"
+	url = "https://github.com/ritesh"

@@ -1,0 +1,77 @@
+/* Earthy green palette.
+   Analogous scheme: olive / moss / sage greens (hues ~90-150) over warm
+   parchment and bark neutrals, with a terracotta accent (~hue 20, the
+   complement of green) reserved for hover states so it draws the eye
+   without competing with the greens.
+   Code blocks stay dark ("soil") in both modes and use the gruvbox
+   chroma palette (see chroma-gruvbox.css), which shares the same warm,
+   desaturated family. */
+
+:root {
+    --theme: #f3efe4; /* parchment */
+    --entry: #faf7ec; /* cream card */
+    --primary: #2c3325; /* deep olive ink */
+    --secondary: #67704f; /* sage grey */
+    --tertiary: #dcd5bd; /* sand */
+    --content: #333a2b;
+    --hljs-bg: #282828; /* gruvbox soil */
+    --code-bg: #eae3cd; /* inline code / list bg */
+    --border: #d9d1b8;
+    --link: #46673a; /* forest green */
+    --link-hover: #a8542e; /* terracotta */
+}
+
+.dark {
+    --theme: #161a13; /* moss black */
+    --entry: #222a1e; /* dark moss card */
+    --primary: #e7e3d2; /* bone */
+    --secondary: #a3ac8f; /* dry sage */
+    --tertiary: #333c2d;
+    --content: #d8d5c4;
+    --hljs-bg: #1d2021; /* gruvbox hard, darker than the page */
+    --code-bg: #2c3526;
+    --border: #2f3828;
+    --link: #a4c294; /* fresh sage */
+    --link-hover: #d99063; /* clay */
+}
+
+/* Larger, more legible body type */
+.post-content {
+    font-size: 19px;
+    line-height: 1.75;
+}
+
+.entry-content {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Clear, readable code */
+.post-content pre code {
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 14px 16px;
+}
+
+.post-content code {
+    font-size: 0.82em;
+}
+
+/* Green links, terracotta on hover */
+.post-content a {
+    color: var(--link);
+    box-shadow: 0 1px 0 var(--link);
+}
+
+.post-content a:hover {
+    color: var(--link-hover);
+    box-shadow: 0 1px 0 var(--link-hover);
+}
+
+.post-content blockquote {
+    border-inline-start: 3px solid var(--link);
+}
+
+::selection {
+    background: var(--tertiary);
+}
